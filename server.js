@@ -25,7 +25,7 @@ app.post('/newUser', ({ body }, res) => {
     newUser.hashPassword();
     db.User.create(newUser)
         .then(dbUser => {
-            res.json(dbUser)
+            res.json(dbUser.username)
         })
         .catch(err => {
             res.json(err);
@@ -39,9 +39,17 @@ app.post('/login',
         // instructs Passport to flash an error message using the message option set by the verify callback
         failureFlash: true
     }), (req, res) => {
-        console.log("request:", req);
-        res.json('login successful!')
+        // The user is now identified by the rest of the program through token that is sent in reponse.
+        res.send({
+            token: req.user
+        })
     })
+
+// All other API calls must use bearer authentication.
+app.get('/users', passport.authenticate('bearer'), (req, res) => {
+    res.json('get request successful!')
+})
+
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
