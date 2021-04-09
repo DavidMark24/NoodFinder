@@ -25,7 +25,7 @@ app.post('/newUser', ({ body }, res) => {
     newUser.hashPassword();
     db.User.create(newUser)
         .then(dbUser => {
-            res.json(dbUser.username)
+            res.json(dbUser.email)
         })
         .catch(err => {
             res.json(err);

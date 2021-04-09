@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
     // add must be unique later.
-    username: String,
+    email: String,
     password: String
 });
 

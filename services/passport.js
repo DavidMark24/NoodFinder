@@ -7,11 +7,13 @@ const db = require('../models');
 // Change this, and use dot-env.
 // SECRET used for JWT encrypt/decrypt, so very important.
 const SECRET = 'mysecret'
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+    usernameField: 'email'
+    },
     function (username, password, done) {
         // db model method to find user with given username and password.
         db.User.findOne({
-            username: username
+            email: username
             // You can add a token expiration date to a JWT token.
         }).then(function (user, err) {
             if (err) return err;
@@ -22,7 +24,7 @@ passport.use(new LocalStrategy(
             if (!user.validPassword(password, user.password)) {
                 return done(null, false, { message: 'Incorrect password.' })
             }
-            return done(null, jwt.encode({ username }, SECRET))
+            return done(null, jwt.encode({ email: user.email }, SECRET))
         })
     }
 ))
@@ -36,7 +38,7 @@ passport.use(new BearerStrategy(
             username: decryptedUsername
         }).then(function (user, err) {
             if (err) return err;
-            if (user == null) done(null, false, { message: 'Bad token.'})
+            if (user == null) done(null, false, { message: 'Bad token.' })
             // Passes user object to route.
             else done(null, user);
         })
