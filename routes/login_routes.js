@@ -44,6 +44,7 @@ module.exports = (app) => {
         if (req.body.email !== undefined) {
             let emailAddress = req.body.email;
             let user = await db.User.findOne({ email: emailAddress })
+            if (user == null) return res.sendStatus(404);
             let payload = {
                 // User id from db.
                 id: user._id,
