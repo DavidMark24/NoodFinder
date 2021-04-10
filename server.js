@@ -2,7 +2,6 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const passport = require('./services/passport')
-const db = require('./models');
 const mongoose = require('mongoose');
 
 // Define middleware here
@@ -20,30 +19,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NoodFinder", {
     useNewUrlParser: true
 });
 
-app.post('/newUser', ({ body }, res) => {
-    const newUser = new db.User(body)
-    newUser.hashPassword();
-    db.User.create(newUser)
-        .then(dbUser => {
-            res.json(dbUser.email)
-        })
-        .catch(err => {
-            res.json(err);
-        });
-})
-
-// If passport middleware succeeds, it will send User object in req.
-app.post('/login',
-    passport.authenticate('local', {
-        failureRedirect: '/login',
-        // instructs Passport to flash an error message using the message option set by the verify callback
-        failureFlash: true
-    }), (req, res) => {
-        // The user is now identified by the rest of the program through token that is sent in reponse.
-        res.send({
-            token: req.user
-        })
-    })
+require('./routes/login_routes')(app);
 
 // All other API calls must use bearer authentication.
 app.get('/users', passport.authenticate('bearer'), (req, res) => {
