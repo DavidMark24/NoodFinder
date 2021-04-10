@@ -1,6 +1,7 @@
 import React from "react";
 import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
+import Footer from "../components/Footer";
 
 function SignUp() {
     return (
@@ -48,6 +49,7 @@ function SignUp() {
 
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

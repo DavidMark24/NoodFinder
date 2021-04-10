@@ -1,6 +1,7 @@
 import React from "react";
 import logIn from "../images/logInLogo.svg";
 import logInButton from "../images/logInButton.svg";
+import Footer from "../components/Footer";
 
 function Login() {
     return (
@@ -37,11 +38,13 @@ function Login() {
                     </form>
                     <br />
                     <p className="text-center">Not a member? Sign up <a className="link-color" href="/signup">HERE!</a></p>
+                    <p className="text-center"><a className="link-color" href="/forgotPassword">Forgot password?</a></p>
                 </div>
                 <div className="col-2">
 
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
