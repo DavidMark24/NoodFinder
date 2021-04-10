@@ -38,7 +38,7 @@ function Login() {
                     </form>
                     <br />
                     <p className="text-center">Not a member? Sign up <a className="link-color" href="/signup">HERE!</a></p>
-                    <p className="text-center"><a className="link-color" href="/forgotPassword">Forgot password?</a></p>
+                    <p className="text-center"><a className="link-color" href="/enteremail">Forgot password?</a></p>
                 </div>
                 <div className="col-2">
 
