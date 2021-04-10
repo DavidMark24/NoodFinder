@@ -1,6 +1,6 @@
 import React from "react";
 import Lemon from "../images/lemon.jpg";
-import FruitParfait from "../images/fruitParfait.jpg";
+// import FruitParfait from "../images/fruitParfait.jpg";
 
 function Splash() {
     return (
