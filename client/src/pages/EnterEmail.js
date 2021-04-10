@@ -1,6 +1,6 @@
 import React from "react";
 import resetPassword from "../images/resetPassword.svg";
-import resetButton from "../images/resetButton.svg";
+import submitButton from "../images/submitButton.svg";
 import Footer from "../components/Footer";
 
 function EnterEmail() {
@@ -27,7 +27,7 @@ function EnterEmail() {
                             <span className="sr-only">Error:</span> <span className="msg"></span>
                         </div>
                         <div className="text-center">
-                            <button type="submit" className="btn btn-secondary m-3 mt-4 h3 btn-xl"><img src={resetButton} width='100' alt="loginbtn" /></button>
+                            <button type="submit" className="btn btn-secondary m-3 mt-4 h3 btn-xl"><img src={submitButton} width='100' alt="loginbtn" /></button>
                         </div>
                     </form>
                     <br />
