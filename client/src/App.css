@@ -1,6 +1,15 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background-color: #cfcbc1;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.25rem;
 }
 
 .logo {
@@ -44,8 +53,20 @@ body {
   background-color: #556b2f;
 }
 
+.pink_bg  {
+  background-color: #ff69b4;
+}
+
 .spacing {
   height: 100px;
+}
+
+.splashSpacingTop {
+  height: 70vh;
+}
+
+.splashSpacingBottom {
+  height: 30vh;
 }
 
 .btn-primary {
@@ -55,21 +76,21 @@ body {
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-  color: #c4c0c0;
-  background-color: #c4c0c0;
+  color: #7e7d7a;
+  background-color: #7e7d7a;
   border-color: #b65037; /*set the color you want here*/
 }
 
 .btn-secondary {
   color: #fffffa;
-  background-color: #556b2f;
-  border-color: #556b2f; /*set the color you want here*/
+  background-color: #CC5500;
+  border-color: #ffcb7d; /*set the color you want here*/
 }
 
 .btn-secondary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-  color: #c4c0c0;
-  background-color: #c4c0c0;
-  border-color: #556b2f; /*set the color you want here*/
+  color: #7e7d7a;
+  background-color: #7e7d7a;
+  border-color: #CC5500; /*set the color you want here*/
 }
 
 .btn-xl {

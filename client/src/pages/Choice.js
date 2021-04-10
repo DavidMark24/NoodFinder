@@ -4,6 +4,7 @@ import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
 import eatOutLogo from "../images/eatOutLogo.svg";
+import Footer from "../components/Footer";
 
 function Choice() {
     return (
@@ -29,6 +30,7 @@ function Choice() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
