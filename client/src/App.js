@@ -7,7 +7,8 @@ import Main from "./pages/Main";
 import SignUp from "./pages/SignUp";
 import Splash from "./pages/Splash";
 import User from "./pages/User";
-import Footer from "./components/Footer";
+import EnterEmail from "./pages/EnterEmail";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/main" component={Main} />
         <Route path="/splash" component={Splash} />
         <Route path="/user" component={User} />
-        <Footer />
+        <Route path="/enteremail" component={EnterEmail} />
+        <Route path="/resetpassword" component={ResetPassword} />
       </div>
     </Router>
   );
