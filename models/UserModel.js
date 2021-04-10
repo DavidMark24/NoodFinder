@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     // add must be unique later.
     email: String,
-    password: String
+    password: String,
+    firstName: String,
+    lastName: String
 }, { timestamps: true });
 
 UserSchema.methods.validPassword = function (password, hashedPassword) {

@@ -10,7 +10,10 @@ module.exports = (app) => {
         newUser.hashPassword();
         db.User.create(newUser)
             .then(dbUser => {
-                res.sendStatus(200);
+                res.json({
+                    firstName: dbUser.firstName,
+                    lastName: dbUser.lastName
+                })
             })
             .catch(err => {
                 res.json(err);
@@ -19,11 +22,8 @@ module.exports = (app) => {
 
     // If passport middleware succeeds, it will send User object in req.
     app.post('/login',
-        passport.authenticate('local', {
-            failureRedirect: '/login',
-            // instructs Passport to flash an error message using the message option set by the verify callback
-            failureFlash: true
-        }), (req, res) => {
+        passport.authenticate('local'),
+        (req, res) => {
             // The user is now identified by the rest of the program through token that is sent in reponse.
             res.send({
                 token: req.user
@@ -106,7 +106,7 @@ module.exports = (app) => {
         }
         res.json('password updated!')
         // TODO: Hash password from req.body.password and add it to db.
-        
+
         // Change password property of given user. 
     })
 }
