@@ -2,8 +2,25 @@ import React from "react";
 import logIn from "../images/logInLogo.svg";
 import logInButton from "../images/logInButton.svg";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 function Login() {
+    async function loginUser(event) {
+        event.preventDefault()
+        let email = document.getElementById('email-input').value;
+        let password = document.getElementById('password-input').value;
+        axios.post('/login', {
+            email,
+            password
+        }).then(function (response) {
+            // This token uniquely identifies the user, and will be needed for all api calls.
+            const token = response.data.token;
+        }).catch(function (error) {
+            // API will return 401 Unauthorized for bad credentials.
+            console.log(error);
+        })
+    }
+
     return (
         <div className="container">
             <div className="row spacing">
@@ -28,12 +45,12 @@ function Login() {
                                     aria-describedby="inputGroup-sizing-sm" id="password-input" placeholder="Password" required />
                             </div>
                         </div>
-                        <div style={{display: "none"}} id="alert" className="alert alert-danger" role="alert">
+                        <div style={{ display: "none" }} id="alert" className="alert alert-danger" role="alert">
                             <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span className="sr-only">Error:</span> <span className="msg"></span>
                         </div>
                         <div className="text-center">
-                            <button type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
+                            <button onClick={(e) => loginUser(e)} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
                         </div>
                     </form>
                     <br />

@@ -25,7 +25,7 @@ module.exports = (app) => {
         passport.authenticate('local'),
         (req, res) => {
             // The user is now identified by the rest of the program through token that is sent in reponse.
-            res.send({
+            res.json({
                 token: req.user
             })
         })
@@ -57,6 +57,7 @@ module.exports = (app) => {
             let secret = `${user.password}-${user.createdAt}`
             let token = jwt.encode(payload, secret);
 
+            // TODO: Add a dynammic client URL.
             let clientURL = 'http://localhost:3001'
             let resetLink = `${clientURL}/resetpassword/${payload.id}/${token}`
             sendEmail(resetLink);
