@@ -19,6 +19,14 @@ function SignUp() {
                     </div>
                     <form className="login">
                         <div className="input-group input-group-lg mt-4 ">
+                            <input type="text" className="form-control two-right-round-corners" aria-label="Large"
+                                aria-describedby="inputGroup-sizing-sm" id="firstname-input" placeholder="First Name" required />
+                        </div>
+                        <div className="input-group input-group-lg mt-4 ">
+                            <input type="text" className="form-control two-right-round-corners" aria-label="Large"
+                                aria-describedby="inputGroup-sizing-sm" id="lastname-input" placeholder="Last Name" required />
+                        </div>
+                        <div className="input-group input-group-lg mt-4 ">
                             <input type="email" className="form-control two-right-round-corners" aria-label="Large"
                                 aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required />
                         </div>
