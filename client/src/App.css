@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #cfcbc1;
+  font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+  font-size: 1.25rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.white {
+  color: #f1ebe5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tan  {
+  color: #ffcb7d;
+}
+
+.tan_bg  {
+  background-color: #ffcb7d;
+}
+
+.light_brown  {
+  color: #9d581f;
+}
+
+.light_brown_bg  {
+  background-color: #9d581f;
+}
+
+.dark_brown  {
+  color: #6a3416;
+}
+
+.yellow  {
+  color: #dda023;
+}
+
+.rust_red  {
+  color: #b65037;
+}
+
+.green  {
+  background-color: #556b2f;
+}
+
+.pink_bg  {
+  background-color: #ff69b4;
+}
+
+.spacing {
+  height: 100px;
+}
+
+.splashSpacingTop {
+  height: 70vh;
+}
+
+.splashSpacingBottom {
+  height: 30vh;
+}
+
+.btn-primary {
+  color: #fffffa;
+  background-color: #b65037;
+  border-color: #ffcb7d; /*set the color you want here*/
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  color: #7e7d7a;
+  background-color: #7e7d7a;
+  border-color: #b65037; /*set the color you want here*/
+}
+
+.btn-secondary {
+  color: #fffffa;
+  background-color: #CC5500;
+  border-color: #ffcb7d; /*set the color you want here*/
+}
+
+.btn-secondary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  color: #7e7d7a;
+  background-color: #7e7d7a;
+  border-color: #CC5500; /*set the color you want here*/
+}
+
+.btn-xl {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.link-color {
+  color: #b65037;
+  text-decoration: none;
 }
