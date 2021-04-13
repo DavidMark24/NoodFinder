@@ -6,8 +6,7 @@ const sendEmail = require('../services/send_email');
 
 module.exports = (app) => {
     app.post('/newUser', ({ body }, res) => {
-        const newUser = new db.User(body)
-        console.log("newUser:", newUser);
+        const newUser = new db.User(body);
         newUser.hashPassword();
         db.User.create(newUser)
             .then(dbUser => {

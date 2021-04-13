@@ -9,14 +9,12 @@ function SignUp() {
     function createNewUser(event) {
         event.preventDefault();
         const IDs = ['firstname-input', 'lastname-input', 'email-input', 'password-input', 'password-confirm'];
-        const userData = IDs.map(getElementValue);
-        if (userData[3] !== userData[4]) return 'passwords do not match.'
-        const data = {
-            firstName: userData[0],
-            lastName: userData[1],
-            email: userData[2],
-            password: userData[3]
-        }
+        const inputValues = IDs.map(getElementValue);
+        if (inputValues[3] !== inputValues[4]) return 'passwords do not match.'
+        
+        const keys = ['firstName', 'lastName', 'email', 'password'];
+        let data = {}
+        keys.forEach((key, i) => data[key] = inputValues[i])
         axios.post('/newUser', data)
             .then(response => {
                 console.log(response);
