@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    // add must be unique later.
+    // TODO: add must be unique later.
     email: String,
     password: String,
     firstName: String,

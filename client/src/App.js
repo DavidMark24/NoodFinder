@@ -24,7 +24,7 @@ function App() {
         <Route path="/splash" component={Splash} />
         <Route path="/user" component={User} />
         <Route path="/enteremail" component={EnterEmail} />
-        <Route path="/resetpassword" component={ResetPassword} />
+        <Route path="/resetpassword/" component={ResetPassword} />
         <Route path="/location" component={Location} />
         <Route path="/dinein" component={DineIn} />
         <Route path="/eatout" component={EatOut} />
