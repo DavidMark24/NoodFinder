@@ -21,7 +21,7 @@ function App() {
         <Route path="/splash" component={Splash} />
         <Route path="/user" component={User} />
         <Route path="/enteremail" component={EnterEmail} />
-        <Route path="/resetpassword" component={ResetPassword} />
+        <Route path="/resetpassword/" component={ResetPassword} />
       </div>
     </Router>
   );

@@ -2,8 +2,29 @@ import React from "react";
 import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
 import Footer from "../components/Footer";
+import axios from 'axios';
 
 function SignUp() {
+    const getElementValue = (id) => document.getElementById(id).value;
+    function createNewUser(event) {
+        event.preventDefault();
+        const IDs = ['firstname-input', 'lastname-input', 'email-input', 'password-input', 'password-confirm'];
+        const inputValues = IDs.map(getElementValue);
+        if (inputValues[3] !== inputValues[4]) return 'passwords do not match.'
+        
+        const keys = ['firstName', 'lastName', 'email', 'password'];
+        let data = {}
+        keys.forEach((key, i) => data[key] = inputValues[i])
+        axios.post('/newUser', data)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
+
     return (
         <div className="container">
             <div className="row spacing">
@@ -18,6 +39,14 @@ function SignUp() {
                         <img src={signUp} alt="LoginLogo" height="100" />
                     </div>
                     <form className="login">
+                        <div className="input-group input-group-lg mt-4 ">
+                            <input type="text" className="form-control two-right-round-corners" aria-label="Large"
+                                aria-describedby="inputGroup-sizing-sm" id="firstname-input" placeholder="First Name" required />
+                        </div>
+                        <div className="input-group input-group-lg mt-4 ">
+                            <input type="text" className="form-control two-right-round-corners" aria-label="Large"
+                                aria-describedby="inputGroup-sizing-sm" id="lastname-input" placeholder="Last Name" required />
+                        </div>
                         <div className="input-group input-group-lg mt-4 ">
                             <input type="email" className="form-control two-right-round-corners" aria-label="Large"
                                 aria-describedby="inputGroup-sizing-sm" id="email-input" placeholder="Email" required />
@@ -34,12 +63,12 @@ function SignUp() {
                                     aria-describedby="inputGroup-sizing-sm" id="password-confirm" placeholder="Confirm Password" required />
                             </div>
                         </div>
-                        <div style={{display: "none"}} id="alert" className="alert alert-danger" role="alert">
+                        <div style={{ display: "none" }} id="alert" className="alert alert-danger" role="alert">
                             <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                             <span className="sr-only">Error:</span> <span className="msg"></span>
                         </div>
                         <div className="text-center">
-                            <button type="submit" className="btn btn-secondary mt-2 mb-1 mx-auto h3 btn-xl"><img src={signUpButton} width='100' alt="loginbtn" /></button>
+                            <button onClick={(e) => createNewUser(e)} type="submit" className="btn btn-secondary mt-2 mb-1 mx-auto h3 btn-xl"><img src={signUpButton} width='100' alt="loginbtn" /></button>
                         </div>
                     </form>
                     <br />
