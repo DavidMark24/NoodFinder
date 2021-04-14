@@ -12,7 +12,7 @@ function Choice() {
             <NoodLogo />
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 col-sm-12 shadow-lg p-3 m-5 rounded tan_bg">
+                    <div onClick={event =>  window.location.href='/dinein'} class="col-md-5 col-sm-12 shadow-lg p-3 m-5 rounded tan_bg">
                         <div class="box light_brown_bg p-2 rounded">
                             <img src={dineIn} width='100%' alt=""/>
                         </div>
@@ -20,7 +20,7 @@ function Choice() {
                             <img class="mt-2 py-4" src={dineInLogo} width='90%' alt=""/>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 rounded tan_bg">
+                    <div onClick={event =>  window.location.href='/eatout'} class="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 rounded tan_bg">
                         <div class="box light_brown_bg p-2 rounded">
                             <img src={eatOut} width='100%' alt=""/>
                         </div>
