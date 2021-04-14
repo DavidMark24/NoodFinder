@@ -12,11 +12,11 @@ function Choice() {
  const [restaurant , setRestaurant] = useState([])
     useEffect(() => {
       Api.getRecipeApi("chicken").then(results => {
-           console.log(results);
+        //    console.log(results);
            setRecipes(results.data)
        })
-       Api.handleYelp("sushi" , "Irvine,CA").then(results => {
-           console.log(results)
+       Api.handleYelp("burgers" , "Irvine,CA").then(results => {
+        //    console.log(results)
            setRestaurant(results.data)
        })
     },[])

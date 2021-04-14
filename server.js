@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NoodFinder", {
     useNewUrlParser: true
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipe")
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipe")
 
 require('./routes/login_routes')(app);
 
