@@ -22,7 +22,6 @@ function ResetPassword() {
             }).catch(error => {
                 console.log(error);
             })
-
     }
 
 
@@ -37,7 +36,7 @@ function ResetPassword() {
                 </div>
                 <div className="col-8 shadow-lg px-5 pt-5 pb-3 my-5 tan_bg rounded">
                     <div className="logo">
-                        <img src={resetPassword} alt="LoginLogo" height="100" />
+                        <img src={resetPassword} alt="LoginLogo" height="100%" />
                     </div>
                     <form className="login mt-5">
                         <div className="input-group input-group-lg mt-4 ">
