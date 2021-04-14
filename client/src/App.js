@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import './App.css';
-import YelpSearch from './componets/YelpSearch';
-
-function App() {
-  return(
-    <YelpSearch/>
-  )
-=======
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
@@ -34,7 +25,6 @@ function App() {
       </div>
     </Router>
   );
->>>>>>> f46b0c31e679f29b0206bbe9b11dcfb99445e479
 }
 
 export default App;
