@@ -15,6 +15,7 @@ function Login() {
         }).then(function (response) {
             // This token uniquely identifies the user, and will be needed for all api calls.
             const token = response.data.token;
+            console.log("token:", token);
         }).catch(function (error) {
             // API will return 401 Unauthorized for bad credentials.
             console.log(error);
