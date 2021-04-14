@@ -9,6 +9,9 @@ import Splash from "./pages/Splash";
 import User from "./pages/User";
 import EnterEmail from "./pages/EnterEmail";
 import ResetPassword from "./pages/ResetPassword";
+import Location from "./pages/Location";
+import DineIn from "./pages/DineIn";
+import EatOut from "./pages/EatOut";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/user" component={User} />
         <Route path="/enteremail" component={EnterEmail} />
         <Route path="/resetpassword" component={ResetPassword} />
+        <Route path="/location" component={Location} />
+        <Route path="/dinein" component={DineIn} />
+        <Route path="/eatout" component={EatOut} />
       </div>
     </Router>
   );
