@@ -9,7 +9,13 @@ import Splash from "./pages/Splash";
 import User from "./pages/User";
 import EnterEmail from "./pages/EnterEmail";
 import ResetPassword from "./pages/ResetPassword";
+<<<<<<< HEAD
 import RecipeSearch from "./pages/RecipeSearch";
+=======
+import Location from "./pages/Location";
+import DineIn from "./pages/DineIn";
+import EatOut from "./pages/EatOut";
+>>>>>>> 3e126e5942925662e0026d618d7c7b29a9fa26ed
 
 function App() {
   return (
@@ -23,7 +29,13 @@ function App() {
         <Route path="/user" component={User} />
         <Route path="/enteremail" component={EnterEmail} />
         <Route path="/resetpassword/" component={ResetPassword} />
+<<<<<<< HEAD
         <Route path="/recipes" component={RecipeSearch} />
+=======
+        <Route path="/location" component={Location} />
+        <Route path="/dinein" component={DineIn} />
+        <Route path="/eatout" component={EatOut} />
+>>>>>>> 3e126e5942925662e0026d618d7c7b29a9fa26ed
       </div>
     </Router>
   );
