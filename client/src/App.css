@@ -8,6 +8,14 @@ h1 {
   font-size: 3rem;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
 p {
   font-size: 1.25rem;
 }
@@ -107,4 +115,8 @@ p {
 .link-color:hover {
   color: #7e7d7a;
   text-decoration: none;
+}
+
+.extra-rounded {
+  border-radius: 20px;
 }
