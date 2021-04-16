@@ -8,7 +8,6 @@ import API from "../utils/Api";
 
 function DineIn(props) {
     const [allRecipes, setAllRecipes] = useState([]);
-    // const [currentRecipe, setCurrentRecipe] = useState(null);
     const [recipeIndex, setRecipeIndex] = useState(0);
 
     useEffect(() => {
@@ -35,8 +34,12 @@ function DineIn(props) {
         <div>
             {
                 allRecipes[recipeIndex] == null ?
-                // Check out loading.io for loading icon.
-                    <div></div>
+                    // Check out loading.io for cool loading icons.
+                    <div className="d-flex mt-5 justify-content-center">
+                        <div className="spinner-border text-warning" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                     :
                     <>
                         <div className="jumbotron logo py-4">
