@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect , useState} from "react";
 import NoodLogo from "../components/NoodLogo"
 import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
@@ -8,23 +8,21 @@ import Footer from "../components/Footer";
 import Api from "../utils/Api"
 
 function Choice() {
-    const [recipes,setRecipes] = useState([])
     const [restaurant , setRestaurant] = useState([])
 
-    useEffect(() => {
-        Api.getRecipeApi("chicken").then(results => {
-            console.log(results);
-            setRecipes(results.data)
-        })
-        Api.handleYelp("sushi" , "Irvine,CA").then(results => {
-            console.log(results)
-            setRestaurant(results.data)
-        })
-    },[])
+    
+    // useEffect(() => {
+    //     Api.handleYelp("sushi" , "Irvine,CA").then(results => {
+    //         console.log(results)
+    //         setRestaurant(results.data)
+    //     })
+    // },[])
+
+
 
     return (
         <div>
-            {console.log(recipes,restaurant)}
+            {console.log(restaurant)}
             <NoodLogo />
             <div class="container">
                 <div class="row">

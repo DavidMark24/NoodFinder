@@ -2,8 +2,14 @@ import React from "react";
 import location from "../images/location.svg";
 import submitButton from "../images/submitButton.svg";
 import Footer from "../components/Footer";
+// import API from "../utils/Api"
 
 function Location() {
+
+    handleInputChange() = {
+        
+    }
+
     return (
         <div className="container">
             <div className="row spacing">

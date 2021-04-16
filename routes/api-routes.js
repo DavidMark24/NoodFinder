@@ -21,14 +21,9 @@ router.get("/api/restaurantsearch/:term/:location" , (req , res) =>{
     const config = {
         headers: {
             Authorization: `Bearer ${BEARER}`
-        },
-        params: {
-            terms: req.params.term,
-            location:  req.params.location
         }
     };
-   // console.log(corsAny + BASEURL, config);
-    axios.get( BASEURL, config).then(results => {
+    axios.get("https://api.yelp.com/v3/businesses/search?term=" + req.params.term + "&location=" + req.params.location, config).then(results => {
       
         res.json(results.data.businesses)
     })
