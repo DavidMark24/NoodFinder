@@ -9,6 +9,7 @@ import Splash from "./pages/Splash";
 import User from "./pages/User";
 import EnterEmail from "./pages/EnterEmail";
 import ResetPassword from "./pages/ResetPassword";
+import RecipeSearch from "./pages/RecipeSearch";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/user" component={User} />
         <Route path="/enteremail" component={EnterEmail} />
         <Route path="/resetpassword/" component={ResetPassword} />
+        <Route path="/recipes" component={RecipeSearch} />
       </div>
     </Router>
   );

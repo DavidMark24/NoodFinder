@@ -22,8 +22,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NoodFinder", {
     useNewUrlParser: true
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipe")
-
 require('./routes/login_routes')(app);
 
 // All other API calls must use bearer authentication.
