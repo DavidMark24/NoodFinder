@@ -24,7 +24,7 @@ function EatOut() {
                                 <h3>Hours</h3>
                             </div>
                             <div className="row text-center">
-                                <h3>1-800)SND-NOOD</h3>
+                                <h3>1-800-SND-NOOD</h3>
                             </div>
                             <div className="row text-center mt-4">
                                 <div className="col-4">
@@ -43,6 +43,6 @@ function EatOut() {
             <Footer />
         </div>
     );
-}
+};
 
 export default EatOut;
