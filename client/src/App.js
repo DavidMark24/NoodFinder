@@ -12,6 +12,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Location from "./pages/Location";
 import DineIn from "./pages/DineIn";
 import EatOut from "./pages/EatOut";
+import Cuisines from "./pages/Cuisines";
+import Meals from "./pages/Meals";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/location" component={Location} />
         <Route path="/dinein" component={DineIn} />
         <Route path="/eatout" component={EatOut} />
+        <Route path="/cuisines" component={Cuisines} />
+        <Route path="/meals" component={Meals} />
       </div>
     </Router>
   );
