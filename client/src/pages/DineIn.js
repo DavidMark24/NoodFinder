@@ -35,6 +35,7 @@ function DineIn(props) {
         <div>
             {
                 allRecipes[recipeIndex] == null ?
+                // Check out loading.io for loading icon.
                     <div></div>
                     :
                     <>
@@ -58,7 +59,7 @@ function DineIn(props) {
                                     </div>
                                     <div className="row text-center mt-4">
                                         <div className="col-4">
-                                            <img onClick={event => alert("Disliked")} src={rejectButton} width='100%' alt="" />
+                                            <img onClick={e => changeRecipe(e)} src={rejectButton} width='100%' alt="" />
                                         </div>
                                         <div className="col-4">
                                             {/* Empty column */}
