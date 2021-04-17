@@ -51,7 +51,7 @@ function Login() {
                             <span className="sr-only">Error:</span> <span className="msg"></span>
                         </div>
                         <div className="text-center">
-                            <button onClick={(e) => loginUser(e)} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
+                            <button onClick={(e) => {loginUser(e); window.location.href='/choice'}} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
                         </div>
                     </form>
                     <br />
