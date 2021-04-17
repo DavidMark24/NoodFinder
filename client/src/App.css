@@ -120,3 +120,10 @@ p {
 .extra-rounded {
   border-radius: 20px;
 }
+
+.cuisine-box {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
