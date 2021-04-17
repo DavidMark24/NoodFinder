@@ -17,7 +17,7 @@ router.get("/api/recipesearch/:term", (req, res) => {
 // Consider using dishType (soup, dessert, etc).
 router.get('/api/cuisine/:genre/:query', (req, res) => {
     let { query, genre } = req.params;
-    let url = `https://api.edamam.com/search?q=${query}&cuisineTypes=${genre}&app_id=97b6a1fd&app_key=${process.env.RECIPE_API}`
+    let url = `https://api.edamam.com/search?q=${query}&cuisineTypes=${genre}&to=100&app_id=97b6a1fd&app_key=${process.env.RECIPE_API}`
     axios.get(url)
         .then(results => {
             res.json(results.data.hits)

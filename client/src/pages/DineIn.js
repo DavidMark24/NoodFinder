@@ -14,15 +14,11 @@ function DineIn(props) {
         API.getRandomRecipe("mexican", "lunch")
             .then(response => {
                 let goodRecipes = response.data
-                    .map(getRecipeObject)
-                    .filter(hasNonzeroTime);
-                console.log("goodRecipes:", goodRecipes);
+                    .map(res => res.recipe)
+                    .filter(recipe => recipe.totalTime !== 0);
                 setAllRecipes(goodRecipes);
             });
     }, []);
-
-    const getRecipeObject = (elem) => elem.recipe;
-    const hasNonzeroTime = (recipe) => recipe.totalTime !== 0;
 
     function changeRecipe(event) {
         event.preventDefault();
