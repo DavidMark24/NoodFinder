@@ -26,6 +26,11 @@ function DineIn(props) {
         setRecipeIndex(recipeIndex + 1);
     }
 
+    function addToFavorites(event) {
+        event.preventDefault();
+        // const {image, label, totalTime, yield}
+    }
+
     function shuffleRecipes(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -52,7 +57,9 @@ function DineIn(props) {
                         <div className="container logo">
                             <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
                                 <div className="box light_brown_bg p-2 rounded">
-                                    <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
+                                    <a href={allRecipes[recipeIndex].url}>
+                                        <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
+                                    </a>
                                 </div>
                                 <div className="p-3">
                                     <div className="row text-center">
@@ -74,6 +81,7 @@ function DineIn(props) {
                                         <div className="col-4">
                                             <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
                                         </div>
+                                        <button onClick={e => addToFavorites(e)} type="button" class="btn btn-primary">Add to favorites.</button>
                                     </div>
                                 </div>
                             </div>

@@ -24,6 +24,13 @@ router.get('/api/cuisine/:genre/:query', (req, res) => {
         });
 })
 
+// For MVP, body will contain hard-coded email. 
+// Recieves: email, recipe name, cook-time, servings, url.
+router.post('/api/recipes', ({body}, res) => {
+    const {email, name, cookTime, servings, url} = body;
+    res.json('request successful!')
+})
+
 // Yelp API
 router.get("/api/restaurantsearch/:term/:location", (req, res) => {
     const config = {
