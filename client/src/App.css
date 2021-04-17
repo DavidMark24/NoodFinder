@@ -20,6 +20,11 @@ p {
   font-size: 1.25rem;
 }
 
+.cuisine {
+  font-size: 3rem;
+  font-family: 'Aclonica', sans-serif; 
+}
+
 .logo {
   display: flex;
   justify-content: center;
