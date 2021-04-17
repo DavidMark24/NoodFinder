@@ -3,7 +3,6 @@ const axios = require ('axios');
 
 require('dotenv').config();
 
-const BASEURL = "https://api.yelp.com/v3/businesses/search"
 const BEARER = process.env.BEARERTOKEN
 
 // Recipe API

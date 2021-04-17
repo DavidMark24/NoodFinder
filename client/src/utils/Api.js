@@ -5,6 +5,9 @@ const API = {
   getRecipeApi: (term) => {
     return axios.get("/api/recipesearch/" + term);
   },
+  getRandomRecipe: (genre, query) => {
+    return axios.get(`/api/cuisine/${genre}/${query}`);
+  },
 // Yelp
   handleYelp: (searchTerms, searchLocation) => {
     return axios.get(
