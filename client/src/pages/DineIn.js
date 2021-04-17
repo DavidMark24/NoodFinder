@@ -8,17 +8,6 @@ import Footer from "../components/Footer";
 
 function DineIn() {
 
-
-//  const [restaurant , setRestaurant] = useState([])
-
-//     useEffect(() => {
-//         Api.handleYelp("sushi" , "Irvine,CA").then(results => {
-//             console.log(results)
-//             setRestaurant(results.data)
-//         })
-//     },[])
-
-
     return (
         <div>
             <div className="jumbotron logo py-4">

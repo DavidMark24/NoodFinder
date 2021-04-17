@@ -1,32 +1,33 @@
-import React ,{useEffect , useState} from "react";
+import React from "react";
+import NoodLogo from "../components/NoodLogo"
 import eatOutLogo from "../images/eatOutLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
-import Api from "../utils/Api"
 
-// function EatOut() {
-//     const imgStyle = {
-//         width: '100px',
-//         height: '100px',
-//         margin: '15px'
-//     }
-    
-//     const [restaurant , setRestaurant] = useState([])
+function EatOut(props) {
 
-//     useEffect(() => {
-//         Api.handleYelp( "sushi" , "Riverside,CA").then(results => {
-//             console.log(results)
-//             setRestaurant(results.data)
-//         })
-//     },[])
-
-    // {
-    //     restaurant.map(restaurant => <div key = {restaurant.id}> 
-    //     <img style ={imgStyle} src  = {restaurant.image_url} /> 
-    //     {restaurant.name} {restaurant.rating}</div>)
+    // const imgStyle = {
+    //     width: '100px',
+    //     height: '100px',
+    //     margin: '15px'
     // }
+    
+    // const [restaurant , setRestaurant] = useState([])
+
+    // useEffect(() => {
+    //     Api.handleYelp( "sushi" , "Riverside,CA").then(results => {
+    //         console.log(results);
+    //         setRestaurant(results.data);
+    //     })
+    // },[])
+
+    
+        // restaurant.map(restaurant => <div key = {restaurant.id}> 
+        // <img style ={imgStyle} src  = {restaurant.image_url} /> 
+        // {restaurant.name} {restaurant.rating}</div>)
+    
     
     return (
         <div>

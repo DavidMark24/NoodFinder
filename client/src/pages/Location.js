@@ -1,13 +1,35 @@
-import React from "react";
+import React , {useEffect, useState} from "react";
 import location from "../images/location.svg";
 import submitButton from "../images/submitButton.svg";
 import Footer from "../components/Footer";
-// import API from "../utils/Api"
+import API from "../utils/Api"
 
 function Location() {
 
-    handleInputChange() = {
-        
+    const [restaurant , setRestaurant] = useState([])
+    const [place , setPlace] = useState([])
+
+async function yelpData() {
+    const {data} = await API.handleYelp("tacos", place) 
+    setRestaurant(data)
+} 
+
+useEffect(() => {
+    yelpData()
+}, [])
+
+const handleInputChange = e => {
+    let value = e.target.value;
+    let locationTerm = e.target.locationTerm
+    
+    setPlace({
+        [locationTerm]: value
+    })
+}
+
+    const handleSumbit = e => {
+        e.preventDefault();
+       yelpData()
     }
 
     return (
@@ -23,10 +45,10 @@ function Location() {
                     <div className="logo">
                         <img src={location} alt="LoginLogo" height="100" />
                     </div>
-                    <form className="login mt-5">
+                    <form onSubmit = {handleSumbit} className="login mt-5">
                         <div className="input-group input-group-lg mt-4 ">
                         <div className="input-group input-group-lg">
-                                <input type="text" className="form-control" aria-label="Large"
+                                <input value = {place} onChange = {setPlace(handleInputChange)} type="text" className="form-control" aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm" id="location-input" placeholder="Enter your city or zipcode" required />
                             </div>
                         </div>

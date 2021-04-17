@@ -1,14 +1,13 @@
-import React, {useEffect , useState} from "react";
+import React from "react";
 import NoodLogo from "../components/NoodLogo"
 import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
 import eatOutLogo from "../images/eatOutLogo.svg";
 import Footer from "../components/Footer";
-import Api from "../utils/Api"
+
 
 function Choice() {
-    const [restaurant , setRestaurant] = useState([])
 
     
     // useEffect(() => {
@@ -22,7 +21,6 @@ function Choice() {
 
     return (
         <div>
-            {console.log(restaurant)}
             <NoodLogo />
             <div class="container">
                 <div class="row">
