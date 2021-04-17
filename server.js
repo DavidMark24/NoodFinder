@@ -22,8 +22,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NoodFinder", {
     useNewUrlParser: true
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipe")
-
 require('./routes/login_routes')(app);
 
 // All other API calls must use bearer authentication.
@@ -31,7 +29,7 @@ app.get('/users', passport.authenticate('bearer'), (req, res) => {
     res.json('get request successful!')
 })
 
-app.use(require("./routes/api-routes"));
+app.use(require("./routes/api_routes"));
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
