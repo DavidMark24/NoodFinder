@@ -14,7 +14,9 @@ function DineIn(props) {
             .then(response => {
                 let goodRecipes = response.data
                     .map(res => res.recipe)
-                    .filter(recipe => recipe.totalTime !== 0);
+                    .filter(recipe => recipe.totalTime !== 0)
+                    .filter(recipe => recipe.yield !== 0);
+                shuffleRecipes(goodRecipes);
                 setAllRecipes(goodRecipes);
             });
     }, []);
@@ -23,8 +25,15 @@ function DineIn(props) {
         event.preventDefault();
         setRecipeIndex(recipeIndex + 1);
     }
+
+    function shuffleRecipes(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
     console.log("allRecipes:", allRecipes);
-    console.log("current recipe:", allRecipes[recipeIndex]);
     return (
         <div>
             {
@@ -53,7 +62,7 @@ function DineIn(props) {
                                         <h3>Preparation Time: {allRecipes[recipeIndex].totalTime}</h3>
                                     </div>
                                     <div className="row text-center">
-                                        <h3>Dietary Restrictions</h3>
+                                        <h3>Servings: {allRecipes[recipeIndex].yield}</h3>
                                     </div>
                                     <div className="row text-center mt-4">
                                         <div className="col-4">
@@ -63,7 +72,7 @@ function DineIn(props) {
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <img onClick={event => alert("Liked")} src={acceptButton} width='100%' alt="" />
+                                            <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
                                         </div>
                                     </div>
                                 </div>
