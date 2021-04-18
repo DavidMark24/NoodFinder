@@ -1,5 +1,5 @@
-import React from "react";
-import NoodLogo from "../components/NoodLogo"
+import React, {useEffect, useState} from "react";
+import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
@@ -21,7 +21,8 @@ function Choice() {
 
     return (
         <div>
-            <NoodLogo />
+            {console.log(recipes,restaurant)}
+            <OnlyFoodsLogo width="50%"/>
             <div class="container">
                 <div class="row">
                     <div onClick={event =>  window.location.href='/dinein'} class="col-md-5 col-sm-12 shadow-lg p-3 m-5 rounded tan_bg">

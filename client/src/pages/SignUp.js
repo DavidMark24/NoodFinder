@@ -67,7 +67,7 @@ function SignUp() {
                             <span className="sr-only">Error:</span> <span className="msg"></span>
                         </div>
                         <div className="text-center">
-                            <button onClick={(e) => createNewUser(e)} type="submit" className="btn btn-secondary mt-2 mb-1 mx-auto h3 btn-xl"><img src={signUpButton} width='100' alt="loginbtn" /></button>
+                            <button onClick={(e) => {createNewUser(e); window.location.href='/choice';}} type="submit" className="btn btn-secondary mt-2 mb-1 mx-auto h3 btn-xl"><img src={signUpButton} width='100' alt="loginbtn" /></button>
                         </div>
                     </form>
                     <br />

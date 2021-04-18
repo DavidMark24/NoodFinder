@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import dineInLogo from "../images/dineInLogo.svg";
-import dineIn from "../images/dineInSquare.jpg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
@@ -15,7 +14,9 @@ function DineIn(props) {
             .then(response => {
                 let goodRecipes = response.data
                     .map(res => res.recipe)
-                    .filter(recipe => recipe.totalTime !== 0);
+                    .filter(recipe => recipe.totalTime !== 0)
+                    .filter(recipe => recipe.yield !== 0);
+                shuffleRecipes(goodRecipes);
                 setAllRecipes(goodRecipes);
             });
     }, []);
@@ -24,8 +25,20 @@ function DineIn(props) {
         event.preventDefault();
         setRecipeIndex(recipeIndex + 1);
     }
+
+    function addToFavorites(event) {
+        event.preventDefault();
+        // const {image, label, totalTime, yield}
+    }
+
+    function shuffleRecipes(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
     console.log("allRecipes:", allRecipes);
-    console.log("current recipe:", allRecipes[recipeIndex]);
     return (
         <div>
             {
@@ -44,17 +57,19 @@ function DineIn(props) {
                         <div className="container logo">
                             <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
                                 <div className="box light_brown_bg p-2 rounded">
-                                    <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
+                                    <a href={allRecipes[recipeIndex].url}>
+                                        <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
+                                    </a>
                                 </div>
                                 <div className="p-3">
                                     <div className="row text-center">
-                                        <h1><strong>{allRecipes[recipeIndex].label}</strong></h1>
+                                        <h2><strong>{allRecipes[recipeIndex].label}</strong></h2>
                                     </div>
                                     <div className="row text-center">
                                         <h3>Preparation Time: {allRecipes[recipeIndex].totalTime}</h3>
                                     </div>
                                     <div className="row text-center">
-                                        <h3>Dietary Restrictions</h3>
+                                        <h3>Servings: {allRecipes[recipeIndex].yield}</h3>
                                     </div>
                                     <div className="row text-center mt-4">
                                         <div className="col-4">
@@ -64,8 +79,9 @@ function DineIn(props) {
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <img onClick={event => alert("Liked")} src={acceptButton} width='100%' alt="" />
+                                            <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
                                         </div>
+                                        <button onClick={e => addToFavorites(e)} type="button" class="btn btn-primary">Add to favorites.</button>
                                     </div>
                                 </div>
                             </div>

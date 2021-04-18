@@ -14,6 +14,8 @@ import DineIn from "./pages/DineIn";
 import EatOut from "./pages/EatOut";
 import Cuisines from "./pages/Cuisines";
 import Meals from "./pages/Meals";
+import SavedRestaurants from "./pages/SavedRestaurants";
+import SavedRecipes from "./pages/SavedRecipes";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/eatout" component={EatOut} />
         <Route path="/cuisines" component={Cuisines} />
         <Route path="/meals" component={Meals} />
+        <Route path="/savedrecipes" component={SavedRecipes} />
+        <Route path="/savedrestaurants" component={SavedRestaurants} />
       </div>
     </Router>
   );

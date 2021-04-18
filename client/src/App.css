@@ -13,11 +13,16 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 p {
   font-size: 1.25rem;
+}
+
+.cuisine {
+  font-size: 3rem;
+  font-family: 'Aclonica', sans-serif; 
 }
 
 .logo {
