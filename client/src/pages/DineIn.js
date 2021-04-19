@@ -26,9 +26,18 @@ function DineIn(props) {
         setRecipeIndex(recipeIndex + 1);
     }
 
-    function addToFavorites(event) {
+    async function addToFavorites(event) {
         event.preventDefault();
-        // const {image, label, totalTime, yield}
+        // TODO: Use token instead of email.
+        let email = "ankushchalla@gmail.com";
+        let name = allRecipes[recipeIndex].label;
+        let cookTime = allRecipes[recipeIndex].totalTime;
+        let servings = allRecipes[recipeIndex].yield;
+        let url = allRecipes[recipeIndex].url;
+        let image = allRecipes[recipeIndex].image;
+        let recipeData = { email, name, cookTime, servings, url, image};
+        const res = await API.addFavoriteRecipe(recipeData);
+        console.log("new recipe:", res.data);
     }
 
     function shuffleRecipes(array) {

@@ -9,7 +9,8 @@ const recipeSchema = new Schema({
         type: Number
     },
     servings: String, 
-    url: String
+    url: String, 
+    image: String
 });
 
 // const Recipe = mongoose.model("Recipes", recipeSchema);
