@@ -36,8 +36,8 @@ function DineIn(props) {
         let url = allRecipes[recipeIndex].url;
         let image = allRecipes[recipeIndex].image;
         let recipeData = { email, name, cookTime, servings, url, image};
-        const recipeID = await API.addFavoriteRecipe(recipeData);
-        console.log("new recipe:", recipeID);
+        const res = await API.addFavoriteRecipe(recipeData);
+        console.log("new recipe:", res.data);
     }
 
     function shuffleRecipes(array) {
