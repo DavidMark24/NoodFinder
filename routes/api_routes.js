@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const axios = require('axios');
-
+const db = require('../models');
 require('dotenv').config();
 
 const BASEURL = "https://api.yelp.com/v3/businesses/search"
@@ -26,9 +26,33 @@ router.get('/api/cuisine/:genre/:query', (req, res) => {
 
 // For MVP, body will contain hard-coded email. 
 // Recieves: email, recipe name, cook-time, servings, url.
-router.post('/api/recipes', ({body}, res) => {
-    const {email, name, cookTime, servings, url} = body;
-    res.json('request successful!')
+router.post('/api/recipes', async ({ body }, res) => {
+    const { email, name, cookTime, servings, url, image } = body;
+    const newRecipe = {
+        name,
+        cookTime,
+        servings,
+        url,
+        image
+    }
+    let doc = await db.User.findOneAndUpdate({ email }, { $push: { favoriteRecipes: newRecipe } }, { new: true })
+
+    // New recipe is at the end of the array.
+    res.json({
+        recipeID: doc.favoriteRecipes[doc.favoriteRecipes.length - 1]._id
+    })
+})
+
+// Remove from favorite recipes.
+router.delete('/api/recipes/:email/:recipeID', async (req, res) => {
+    const { email, recipeID } = req.params;
+    db.User.findOne({ email })
+        .then(async (user) => {
+            await user.favoriteRecipes.id(recipeID).remove();
+            user.save();
+            res.json("delete successful!")
+        })
+
 })
 
 // Yelp API

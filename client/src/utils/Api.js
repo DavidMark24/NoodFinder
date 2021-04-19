@@ -8,8 +8,8 @@ const API = {
   getRandomRecipe: (genre, query) => {
     return axios.get(`/api/cuisine/${genre}/${query}`);
   },
-  addToFavorites: (recipe) => {
-    return axios.post(`/api/recipes`, recipe);
+  addFavoriteRecipe: (recipeData) => {
+    return axios.post(`/api/recipes`, recipeData);
   },
 // Yelp
   handleYelp: (searchTerms, searchLocation) => {

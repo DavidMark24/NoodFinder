@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-const RecipeSchema = require('./Recipes');
+const RecipeSchema = require('./RecipeModel');
 
 const UserSchema = new mongoose.Schema({
     // TODO: add must be unique later.
