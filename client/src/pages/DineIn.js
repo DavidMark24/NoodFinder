@@ -72,7 +72,7 @@ function DineIn(props) {
                                 </div>
                                 <div className="p-3">
                                     <div className="row text-center">
-                                        <h1><strong>{allRecipes[recipeIndex].label}</strong></h1>
+                                        <h2><strong>{allRecipes[recipeIndex].label}</strong></h2>
                                     </div>
                                     <div className="row text-center">
                                         <h3>Preparation Time: {allRecipes[recipeIndex].totalTime}</h3>
