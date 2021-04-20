@@ -13,9 +13,9 @@ router.get("/api/restaurantsearch/:term/:location" , (req , res) =>{
             Authorization: `Bearer ${BEARER}`
         }
     };
-    axios.get("https://api.yelp.com/v3/businesses/search?term=" + req.params.term + "&location=" + req.params.location, config).then(results => {
+    axios.get("https://api.yelp.com/v3/businesses/search?term=" + req.params.term + "&location=" + req.params.location +"&limit=50", config).then(results => {
       
-        res.json(results.data.businesses)
+   res.json(results.data.businesses)
     })
 })
 

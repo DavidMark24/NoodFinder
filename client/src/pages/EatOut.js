@@ -14,7 +14,7 @@ function EatOut(props) {
     const [recipeIndex, setRecipeIndex] = useState(0)
     
     useEffect(() => {
-        API.handleYelp("mexican", "Riverside,CA")
+        API.handleYelp("Ramen", "Riverside,CA")
             .then(response => {
                 setRestaurant(response.data)
                 shuffleRecipes(response.data);
@@ -44,7 +44,7 @@ function EatOut(props) {
     
     return (
         <div>
-          {  console.log(restaurant[recipeIndex])}
+          
             <OnlyFoodsLogo />
             {
                 restaurant[recipeIndex] == null ?
@@ -63,17 +63,18 @@ function EatOut(props) {
             <div className="container logo">
                     <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
                         <div className="box light_brown_bg p-2 rounded">
-                            <img className="rounded" src={eatOut} width='100%' alt=""/>
+                            <img className="rounded" src={restaurant[recipeIndex].image_url} width='100%' alt=""/>
                         </div>
                         <div className="p-3">
                             <div className="row text-center">
-                                <h1><strong>{restaurant.map(restaurant => restaurant.name)}</strong></h1>
+                            {  console.log(restaurant[recipeIndex].name)}
+                                <h1><strong>{restaurant[recipeIndex].name}</strong></h1>
                             </div>
                             <div className="row text-center">
-                                <h3>Hours</h3>
+                                <h3>{restaurant[recipeIndex].is_closed === false ? "Open " : "Close"}</h3>
                             </div>
                             <div className="row text-center">
-                                <h3>1-800-SND-NUDZ</h3>
+                                <h3>{restaurant[recipeIndex].display_phone}</h3>
                             </div>
                             <div className="row text-center mt-4">
                                 <div className="col-4">
@@ -85,6 +86,7 @@ function EatOut(props) {
                                 <div className="col-4">
                                 <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
                                 </div>
+                                <button onClick={e => addToFavorites(e)} type="button" className="btn btn-primary">Add to favorites.</button>
                             </div>
                         </div>
                     </div>
