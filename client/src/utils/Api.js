@@ -14,7 +14,7 @@ const API = {
 // Yelp
   handleYelp: (searchTerms, searchLocation) => {
     return axios.get(
-      "/api/restaurantsearch/" + searchTerms + "/" + searchLocation
+      `/api/restaurantsearch/${searchTerms}/${searchLocation}`
     );
   },
 

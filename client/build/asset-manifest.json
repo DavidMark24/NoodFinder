@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.993db32e.chunk.css",
+    "main.js": "/static/js/main.cf0616d5.chunk.js",
+    "main.js.map": "/static/js/main.cf0616d5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.81136bc2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.81136bc2.js.map",
+    "static/js/2.7d09521c.chunk.js": "/static/js/2.7d09521c.chunk.js",
+    "static/js/2.7d09521c.chunk.js.map": "/static/js/2.7d09521c.chunk.js.map",
+    "static/js/3.9ec8f5cd.chunk.js": "/static/js/3.9ec8f5cd.chunk.js",
+    "static/js/3.9ec8f5cd.chunk.js.map": "/static/js/3.9ec8f5cd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.993db32e.chunk.css.map": "/static/css/main.993db32e.chunk.css.map",
+    "static/js/2.7d09521c.chunk.js.LICENSE.txt": "/static/js/2.7d09521c.chunk.js.LICENSE.txt",
+    "static/media/acceptButton.bc35eff8.svg": "/static/media/acceptButton.bc35eff8.svg",
+    "static/media/dineInLogo.70d936a5.svg": "/static/media/dineInLogo.70d936a5.svg",
+    "static/media/dineInSquare.f0f32a23.jpg": "/static/media/dineInSquare.f0f32a23.jpg",
+    "static/media/eatOutLogo.68975e36.svg": "/static/media/eatOutLogo.68975e36.svg",
+    "static/media/eatOutSquare.ad40ba4f.jpg": "/static/media/eatOutSquare.ad40ba4f.jpg",
+    "static/media/genre.9ca5ad1c.svg": "/static/media/genre.9ca5ad1c.svg",
+    "static/media/lemon.75b5b79d.jpg": "/static/media/lemon.75b5b79d.jpg",
+    "static/media/location.129e3d9b.svg": "/static/media/location.129e3d9b.svg",
+    "static/media/logInButton.87ad87fe.svg": "/static/media/logInButton.87ad87fe.svg",
+    "static/media/logInLogo.4f32a49b.svg": "/static/media/logInLogo.4f32a49b.svg",
+    "static/media/onlyFoodsLogo.cfddaad8.svg": "/static/media/onlyFoodsLogo.cfddaad8.svg",
+    "static/media/rejectButton.66270462.svg": "/static/media/rejectButton.66270462.svg",
+    "static/media/resetPassword.b54b5c68.svg": "/static/media/resetPassword.b54b5c68.svg",
+    "static/media/signUpButton.4c1e738d.svg": "/static/media/signUpButton.4c1e738d.svg",
+    "static/media/signUpLogo.a367030a.svg": "/static/media/signUpLogo.a367030a.svg",
+    "static/media/subgenre.7dce1090.svg": "/static/media/subgenre.7dce1090.svg",
+    "static/media/submitButton.d34069d6.svg": "/static/media/submitButton.d34069d6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.81136bc2.js",
+    "static/js/2.7d09521c.chunk.js",
+    "static/css/main.993db32e.chunk.css",
+    "static/js/main.cf0616d5.chunk.js"
+  ]
+}
