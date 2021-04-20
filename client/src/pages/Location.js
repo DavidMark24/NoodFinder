@@ -4,10 +4,11 @@ import submitButton from "../images/submitButton.svg";
 import Footer from "../components/Footer";
 import API from "../utils/Api"
 
-function Location() {
+function Location({place}) {
 
     const [restaurant , setRestaurant] = useState([])
-    const [place , setPlace] = useState([])
+  
+
 
 async function yelpData() {
     const {data} = await API.handleYelp("tacos", place) 
@@ -18,14 +19,7 @@ useEffect(() => {
     yelpData()
 }, [])
 
-const handleInputChange = e => {
-    let value = e.target.value;
-    let locationTerm = e.target.locationTerm
-    
-    setPlace({
-        [locationTerm]: value
-    })
-}
+
 
     const handleSumbit = e => {
         e.preventDefault();
@@ -48,7 +42,7 @@ const handleInputChange = e => {
                     <form onSubmit = {handleSumbit} className="login mt-5">
                         <div className="input-group input-group-lg mt-4 ">
                         <div className="input-group input-group-lg">
-                                <input value = {place} onChange = {setPlace(handleInputChange)} type="text" className="form-control" aria-label="Large"
+                                <input value = {restaurant} onChange = {setRestaurant()} type="text" className="form-control" aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm" id="location-input" placeholder="Enter your city or zipcode" required />
                             </div>
                         </div>
