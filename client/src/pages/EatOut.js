@@ -1,7 +1,6 @@
 import React , {useEffect , useState} from "react";
 import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import eatOutLogo from "../images/eatOutLogo.svg";
-import eatOut from "../images/eatOutSquare.jpg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
@@ -31,7 +30,6 @@ function EatOut(props) {
         event.preventDefault();
         // const {image, label, totalTime, yield}
     }
-  
     
     function shuffleRecipes(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -44,7 +42,6 @@ function EatOut(props) {
     
     return (
         <div>
-          
             <OnlyFoodsLogo />
             {
                 restaurant[recipeIndex] == null ?
