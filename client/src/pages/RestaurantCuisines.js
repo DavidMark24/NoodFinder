@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import { cuisines } from "../CuisinesData";
 import { Link } from "react-router-dom";
 
-function Cuisines(props) {
+function RestaurantCuisines(props) {
     const [cuisineIndex, setCuisineIndex] = useState(0);
 
     function changeCuisine(event) {
@@ -24,7 +24,7 @@ function Cuisines(props) {
                 <img src={genreLogo} width='70%' alt="Nood Finder Logo"/>
             </div>
             <div className="container logo">
-                <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
+                <div className="col-lg-5 col-m-7 col-sm-8 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
                     <div className="box light_brown_bg p-2 rounded">
                         <img className="rounded" src={cuisines[cuisineIndex].image} width='100%' alt=""/>
                     </div>
@@ -40,7 +40,7 @@ function Cuisines(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                                <Link to = {`/meals?genre=${cuisines[cuisineIndex].name}`}>
+                                <Link to = "/eatout">
                                     <img id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
                                 </Link>
                             </div>
@@ -53,4 +53,4 @@ function Cuisines(props) {
     );
 }
 
-export default Cuisines;
+export default RestaurantCuisines;
