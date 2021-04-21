@@ -10,7 +10,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Location from "./pages/Location";
 import DineIn from "./pages/DineIn";
 import EatOut from "./pages/EatOut";
-import Cuisines from "./pages/Cuisines";
+import RecipeCuisines from "./pages/RecipeCuisines";
+import RestaurantCuisines from "./pages/RestaurantCuisines";
 import Meals from "./pages/Meals";
 import SavedRestaurants from "./pages/SavedRestaurants";
 import SavedRecipes from "./pages/SavedRecipes";
@@ -28,7 +29,8 @@ function App() {
         <Route path="/location" component={Location} />
         <Route path="/dinein" component={DineIn} />
         <Route path="/eatout" component={EatOut} />
-        <Route path="/cuisines" component={Cuisines} />
+        <Route path="/recipecuisines" component={RecipeCuisines} />
+        <Route path="/restaurantcuisines" component={RestaurantCuisines} />
         <Route path="/meals" component={Meals} />
         <Route path="/savedrecipes" component={SavedRecipes} />
         <Route path="/savedrestaurants" component={SavedRestaurants} />
