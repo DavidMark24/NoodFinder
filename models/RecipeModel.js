@@ -8,16 +8,11 @@ const recipeSchema = new Schema({
     cookTime: {
         type: Number
     },
-    category: {
-        type: String
-    },
-    ingredients: {
-        type: String
-    }
-    
-
+    servings: String, 
+    url: String, 
+    image: String
 });
 
-const Recipe = mongoose.model("Recipes",recipeSchema);
+// const Recipe = mongoose.model("Recipes", recipeSchema);
 
-module.exports = Recipe;
+module.exports = recipeSchema;

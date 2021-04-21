@@ -26,6 +26,20 @@ function DineIn(props) {
         setRecipeIndex(recipeIndex + 1);
     }
 
+    async function addToFavorites(event) {
+        event.preventDefault();
+        // TODO: Use token instead of email.
+        let email = "ankushchalla@gmail.com";
+        let name = allRecipes[recipeIndex].label;
+        let cookTime = allRecipes[recipeIndex].totalTime;
+        let servings = allRecipes[recipeIndex].yield;
+        let url = allRecipes[recipeIndex].url;
+        let image = allRecipes[recipeIndex].image;
+        let recipeData = { email, name, cookTime, servings, url, image};
+        const res = await API.addFavoriteRecipe(recipeData);
+        console.log("new recipe:", res.data);
+    }
+
     function shuffleRecipes(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -52,7 +66,9 @@ function DineIn(props) {
                         <div className="container logo">
                             <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
                                 <div className="box light_brown_bg p-2 rounded">
-                                    <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
+                                    <a href={allRecipes[recipeIndex].url}>
+                                        <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
+                                    </a>
                                 </div>
                                 <div className="p-3">
                                     <div className="row text-center">
@@ -72,7 +88,7 @@ function DineIn(props) {
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
+                                            <img onClick={e => addToFavorites(e)} src={acceptButton} width='100%' alt="" />
                                         </div>
                                     </div>
                                 </div>

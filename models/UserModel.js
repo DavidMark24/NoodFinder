@@ -1,12 +1,14 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const RecipeSchema = require('./RecipeModel');
 
 const UserSchema = new mongoose.Schema({
     // TODO: add must be unique later.
     email: String,
     password: String,
     firstName: String,
-    lastName: String
+    lastName: String,
+    favoriteRecipes: [RecipeSchema]
 }, { timestamps: true });
 
 UserSchema.methods.validPassword = function (password, hashedPassword) {
