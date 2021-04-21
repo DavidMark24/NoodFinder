@@ -22,8 +22,9 @@ router.get('/api/cuisine/:genre/:query', (req, res) => {
 })
 
 // Get favorite recipes.
-router.get('/api/recipes', (req, res) => {
-    res.json("Look at all these chickens!")
+router.get('/api/recipes/:user', async (req, res) => {
+    let user = await db.User.findOne({ email: req.params.user });
+    res.json(user.favoriteRecipes)
 })
 
 // For MVP, body will contain hard-coded email. 
