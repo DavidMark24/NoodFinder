@@ -15,7 +15,7 @@ function Choice() {
             <div class="container">
                 <div class="row logo">
                     <div class="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">
-                    <Link to = "/cuisines">
+                    <Link to = "/recipecuisines">
                         <div class="box light_brown_bg p-2 rounded">
                             <img className="rounded" src={dineIn} width='100%' alt=""/>
                         </div>
@@ -25,7 +25,7 @@ function Choice() {
                     </Link>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">
-                    <Link to = "/cuisines">
+                    <Link to = "/restaurantcuisines">
                         <div class="box light_brown_bg p-2 rounded">
                             <img className="rounded" src={eatOut} width='100%' alt=""/>
                         </div>
