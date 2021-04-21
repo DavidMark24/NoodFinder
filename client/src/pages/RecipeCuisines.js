@@ -40,7 +40,7 @@ function RecipeCuisines(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                                <Link to = "/dinein">
+                                <Link to = {`/meals?genre=${cuisines[cuisineIndex].name}`}>
                                     <img id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
                                 </Link>
                             </div>

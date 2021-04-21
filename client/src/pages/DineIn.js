@@ -9,8 +9,12 @@ function DineIn(props) {
     const [allRecipes, setAllRecipes] = useState([]);
     const [recipeIndex, setRecipeIndex] = useState(0);
 
+    // You can pass cuisine and type in props, or through url. 
     useEffect(() => {
-        API.getRandomRecipe("mexican", "lunch")
+        const urlParams = new URLSearchParams(window.location.search);
+        let genre = urlParams.get('genre');
+        let subGenre = urlParams.get('subGenre');
+        API.getRandomRecipe(genre, subGenre)
             .then(response => {
                 let goodRecipes = response.data
                     .map(res => res.recipe)
