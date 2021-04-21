@@ -88,9 +88,8 @@ function DineIn(props) {
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
+                                            <img onClick={e => addToFavorites(e)} src={acceptButton} width='100%' alt="" />
                                         </div>
-                                        <button onClick={e => addToFavorites(e)} type="button" className="btn btn-primary">Add to favorites.</button>
                                     </div>
                                 </div>
                             </div>

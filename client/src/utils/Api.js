@@ -11,6 +11,9 @@ const API = {
   addFavoriteRecipe: (recipeData) => {
     return axios.post(`/api/recipes`, recipeData);
   },
+  getAllFavorites: (user) => {
+    return axios.get(`/api/recipes/${user}`);
+  },
 // Yelp
   handleYelp: (searchTerms, searchLocation) => {
     return axios.get(
