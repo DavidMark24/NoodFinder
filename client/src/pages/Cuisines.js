@@ -12,7 +12,7 @@ function Cuisines(props) {
     function changeCuisine(event) {
         event.preventDefault();
         if (cuisineIndex === (cuisines.length - 1)) {
-            alert("Choose something already!")
+            alert("Choose something already! Take it from the top.")
             setCuisineIndex(0);
         }
         else {setCuisineIndex(cuisineIndex + 1);}
