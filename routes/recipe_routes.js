@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const axios = require('axios');
 const db = require('../models');
+const passport = require('../services/passport');
 require('dotenv').config();
 
 // Recipe API
@@ -22,15 +23,17 @@ router.get('/api/cuisine/:genre/:query', (req, res) => {
 })
 
 // Get favorite recipes.
-router.get('/api/recipes/:user', async (req, res) => {
-    let user = await db.User.findOne({ email: req.params.user });
-    res.json(user.favoriteRecipes)
+router.get('/api/recipes', passport.authenticate('bearer'), async ({user}, res) => {
+    let favoriteRecipes = user.favoriteRecipes;
+    res.json(favoriteRecipes);
 })
 
-// For MVP, body will contain hard-coded email. 
-// Recieves: email, recipe name, cook-time, servings, url.
-router.post('/api/recipes', async ({ body }, res) => {
-    const { email, name, cookTime, servings, url, image } = body;
+// Add to favorites.
+router.post('/api/recipes', passport.authenticate('bearer'), async ({body, user}, res) => {
+    console.log("body:", body, user);
+    // res.json("post successful!")
+    const email = user.email;
+    const { name, cookTime, servings, url, image } = body;
     const newRecipe = {
         name,
         cookTime,

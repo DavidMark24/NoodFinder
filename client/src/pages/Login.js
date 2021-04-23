@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import UserContext from '../utils/UserContext';
 import logIn from "../images/logInLogo.svg";
 import logInButton from "../images/logInButton.svg";
 import Footer from "../components/Footer";
 import axios from "axios";
 
-function Login() {
-    async function loginUser(event) {
+function Login({history}) {
+    const { token, setToken } = useContext(UserContext);
+
+    // You can't use callback methods for hooks, so we have to use useEffect
+    // to change page after setToken finishes. 
+    useEffect(() => {
+        if (token === '') return;
+        history.push('/choice')
+    }, [token])
+
+    function loginUser(event) {
         event.preventDefault()
         let email = document.getElementById('email-input').value;
         let password = document.getElementById('password-input').value;
@@ -14,8 +24,7 @@ function Login() {
             password
         }).then(function (response) {
             // This token uniquely identifies the user, and will be needed for all api calls.
-            const token = response.data.token;
-            console.log("token:", token);
+            setToken(response.data.token);
         }).catch(function (error) {
             // API will return 401 Unauthorized for bad credentials.
             console.log(error);
@@ -51,7 +60,7 @@ function Login() {
                             <span className="sr-only">Error:</span> <span className="msg"></span>
                         </div>
                         <div className="text-center">
-                            <button onClick={(e) => {loginUser(e); window.location.href='/choice'}} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
+                            <button onClick={(e) => {loginUser(e)}} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
                         </div>
                     </form>
                     <br />
