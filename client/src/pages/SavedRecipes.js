@@ -4,6 +4,7 @@ import SavedCard from "../components/SavedCard";
 import Footer from "../components/Footer";
 import API from "../utils/Api";
 import UserContext from "../utils/UserContext";
+import Navbar from "../components/Navbar";
 
 function SavedRecipes() {
     const { token } = useContext(UserContext);
@@ -15,6 +16,7 @@ function SavedRecipes() {
     }
     return (
         <div>
+            <Navbar />
             <div className="jumbotron logo py-4">
                 <img src={onlyFoodsLogo} height='150' alt="Nood Finder Logo"/>
             </div>
