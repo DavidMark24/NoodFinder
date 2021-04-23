@@ -25,12 +25,11 @@ router.get("/api/restaurantsearch/:term/:location" , (req , res) => {
     // console.log(results.data.businesses[0].id)
      //res.json( secondAPICall(results.data.businesses[0].id)
     //    const id = results.data.businesses[0].id;
-  res.json(results.data.businesses)
+
 //   return axios.get(`https://api.yelp.com/v3/businesses/${id}`, config).then(results => res.json(results.data))
     })
 })
 
-router.get()
 
 
 module.exports = router

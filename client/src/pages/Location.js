@@ -3,29 +3,24 @@ import location from "../images/location.svg";
 import submitButton from "../images/submitButton.svg";
 import Footer from "../components/Footer";
 import API from "../utils/Api"
+import { Link } from "react-router-dom";
 
-function Location({place}) {
+function Location(props) {
 
     const [restaurant , setRestaurant] = useState([])
-  
+    const [locationTerm, setLocationTerm ] = useState('')
+    // let searchLocation =""
 
-
-async function yelpData() {
-    const {data} = await API.handleYelp("tacos", place) 
-    setRestaurant(data)
-} 
-
-useEffect(() => {
-    yelpData()
-}, [])
-
-
-
-    const handleSumbit = e => {
-        e.preventDefault();
-       yelpData()
+    const handleSumbit = (event) => {
+        event.preventDefault();
+        props.history.push(`/eatout/${props.match.params.cuisines}/${locationTerm}}`)
     }
 
+// const handleInput = (event) => {
+// searchLocation = event.target.value
+// }
+
+console.log(props)
     return (
         <div className="container">
             <div className="row spacing">
@@ -42,7 +37,7 @@ useEffect(() => {
                     <form onSubmit = {handleSumbit} className="login mt-5">
                         <div className="input-group input-group-lg mt-4 ">
                         <div className="input-group input-group-lg">
-                                <input value = {restaurant} onChange = {setRestaurant()} type="text" className="form-control" aria-label="Large"
+                                <input value={locationTerm} onChange = {(e) => setLocationTerm(e.target.value)} type="text" className="form-control" aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm" id="location-input" placeholder="Enter your city or zipcode" required />
                             </div>
                         </div>
