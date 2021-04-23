@@ -6,8 +6,13 @@ import Footer from "../components/Footer";
 import { cuisines } from "../CuisinesData";
 import { Link } from "react-router-dom";
 
-function RecipeCuisines(props) {
+function RecipeCuisines({history}) {
     const [cuisineIndex, setCuisineIndex] = useState(0);
+
+    function chooseSubGenre(event) {
+        event.preventDefault();
+        history.push(`/meals?genre=${cuisines[cuisineIndex].name}`);
+    }
 
     function changeCuisine(event) {
         event.preventDefault();
@@ -40,7 +45,7 @@ function RecipeCuisines(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                                <Link to = {`/meals?genre=${cuisines[cuisineIndex].name}`}>
+                                <Link to = '/meal' onClick={(e) => chooseSubGenre(e)}>
                                     <img id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
                                 </Link>
                             </div>

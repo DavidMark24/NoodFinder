@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import subgenreLogo from "../images/subgenre.svg";
 import Footer from "../components/Footer";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+import UserContext from '../utils/UserContext'
 
-function Meals() {
+function Meals({history}) {
     function getRecipes(subGenre) {
-        let root = window.location.origin;
         const urlParams = new URLSearchParams(window.location.search);
         let genre = urlParams.get('genre');
-        window.location.href = `${root}/dinein?genre=${genre}&subGenre=${subGenre}`;
+        history.push(`/dinein?genre=${genre}&subGenre=${subGenre}`)
     }
     
     return (

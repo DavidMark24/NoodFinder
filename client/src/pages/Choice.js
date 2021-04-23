@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
@@ -7,15 +7,19 @@ import eatOutLogo from "../images/eatOutLogo.svg";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
+function Choice({history}) {
+    function chooseGenre(event) {
+        event.preventDefault();
+        history.push('/recipecuisines')
+    }
 
-function Choice() {
     return (
         <div>
             <OnlyFoodsLogo width="50%"/>
             <div class="container">
                 <div class="row logo">
                     <div class="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">
-                    <Link to = "/recipecuisines">
+                    <Link to = {"/recipecuisines"} onClick={(e) => {chooseGenre(e)}}>
                         <div class="box light_brown_bg p-2 rounded">
                             <img className="rounded" src={dineIn} width='100%' alt=""/>
                         </div>
