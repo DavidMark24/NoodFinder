@@ -5,6 +5,7 @@ import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import UserContext from "../utils/UserContext";
 import API from "../utils/Api";
+import Navbar from "../components/Navbar";
 
 function DineIn(props) {
     const { token } = useContext(UserContext);
@@ -65,6 +66,7 @@ function DineIn(props) {
 
     return (
         <div>
+            <Navbar />
             {
                 allRecipes[recipeIndex] == null ?
                     // Check out loading.io for cool loading icons.

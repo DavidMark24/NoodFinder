@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import subgenreLogo from "../images/subgenre.svg";
 import Footer from "../components/Footer";
 import UserContext from '../utils/UserContext'
+import Navbar from "../components/Navbar";
 
 function Meals({history}) {
     function getRecipes(subGenre) {
@@ -12,6 +13,7 @@ function Meals({history}) {
     
     return (
         <div>
+            <Navbar />
             <div className="jumbotron logo py-4">
                 <img src={subgenreLogo} height='150' alt="Nood Finder Logo" />
             </div>
