@@ -6,14 +6,17 @@ import Footer from "../components/Footer";
 import API from "../utils/Api"
 import Navbar from "../components/Navbar";
 
-function EatOut(props) {
 
+function EatOut(props) {
     
     const [restaurant , setRestaurant] = useState([])
     const [recipeIndex, setRecipeIndex] = useState(0)
+
+
+    
     
     useEffect(() => {
-        API.handleYelp("Ramen", "Riverside,CA")
+        API.handleYelp(props.match.params.cuisines ,props.match.params.locationTerm)
             .then(response => {
                 setRestaurant(response.data)
                 shuffleRecipes(response.data);
@@ -39,8 +42,8 @@ function EatOut(props) {
     }
 
     
-    
     return (
+        
         <div>
             <Navbar />
             {
@@ -83,7 +86,6 @@ function EatOut(props) {
                                 <div className="col-4">
                                 <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
                                 </div>
-                                <button onClick={e => addToFavorites(e)} type="button" className="btn btn-primary">Add to favorites.</button>
                             </div>
                         </div>
                     </div>
