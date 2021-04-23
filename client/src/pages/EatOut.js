@@ -5,7 +5,7 @@ import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import API from "../utils/Api"
-import { cuisines } from "../CuisinesData";
+
 
 function EatOut(props) {
     
@@ -16,7 +16,6 @@ function EatOut(props) {
     
     
     useEffect(() => {
-     console.log(props);
         API.handleYelp(props.match.params.cuisines ,props.match.params.locationTerm)
             .then(response => {
                 setRestaurant(response.data)

@@ -15,7 +15,7 @@ import RestaurantCuisines from "./pages/RestaurantCuisines";
 import Meals from "./pages/Meals";
 import SavedRestaurants from "./pages/SavedRestaurants";
 import SavedRecipes from "./pages/SavedRecipes";
-import Search from "./pages/Search";
+
 
 function App() {
   return (

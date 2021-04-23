@@ -1,26 +1,19 @@
-import React , {useEffect, useState} from "react";
+import React , {useState} from "react";
 import location from "../images/location.svg";
 import submitButton from "../images/submitButton.svg";
 import Footer from "../components/Footer";
-import API from "../utils/Api"
-import { Link } from "react-router-dom";
 
 function Location(props) {
-
-    const [restaurant , setRestaurant] = useState([])
     const [locationTerm, setLocationTerm ] = useState('')
-    // let searchLocation =""
+  
 
     const handleSumbit = (event) => {
         event.preventDefault();
         props.history.push(`/eatout/${props.match.params.cuisines}/${locationTerm}}`)
     }
 
-// const handleInput = (event) => {
-// searchLocation = event.target.value
-// }
 
-console.log(props)
+
     return (
         <div className="container">
             <div className="row spacing">
