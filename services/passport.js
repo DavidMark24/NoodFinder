@@ -4,9 +4,11 @@ const BearerStrategy = require('passport-http-bearer').Strategy;
 const jwt = require('jwt-simple');
 const db = require('../models');
 
-// Change this, and use dot-env.
-// SECRET used for JWT encrypt/decrypt, so very important.
-const SECRET = 'mysecret'
+// The token issued at login will be valid for the current hour.
+// TODO: Make token valid for one hour from now.
+let now = new Date(Date.now());
+const SECRET = now.getHours().toString()
+
 passport.use(new LocalStrategy({
     usernameField: 'email'
     },
@@ -33,12 +35,17 @@ passport.use(new LocalStrategy({
 // GET/POST requests will pass token in header. See Postman for exact code.  
 passport.use(new BearerStrategy(
     function (token, done) {
-        const decryptedUsername = jwt.decode(token, SECRET).username;
+        let decryptedUsername;
+        try {
+            decryptedUsername = jwt.decode(token, SECRET).username;
+        } catch (err) {
+            done(null, false)
+        }
         db.User.findOne({
             username: decryptedUsername
         }).then(function (user, err) {
             if (err) return err;
-            if (user == null) done(null, false, { message: 'Bad token.' })
+            if (user == null) done(null, false)
             // Passes user object to route.
             else done(null, user);
         })

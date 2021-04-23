@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4005;
 const app = express();
 const passport = require('./services/passport')
 const mongoose = require('mongoose');
@@ -24,9 +24,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NoodFinder", {
 
 require('./routes/login_routes')(app);
 
-// All other API calls must use bearer authentication.
+// Example of using passport to secure endpoint.
 app.get('/users', passport.authenticate('bearer'), (req, res) => {
-    res.json('get request successful!')
+    console.log(req.user);
+    res.json("get request successful!")
 })
 
 app.use(require("./routes/api_routes"));

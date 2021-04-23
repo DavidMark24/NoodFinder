@@ -1,17 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import dineInLogo from "../images/dineInLogo.svg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
+import UserContext from "../utils/UserContext";
 import API from "../utils/Api";
+import Navbar from "../components/Navbar";
 
 function DineIn(props) {
+    const { token } = useContext(UserContext);
+
     const [allRecipes, setAllRecipes] = useState([]);
     const [recipeIndex, setRecipeIndex] = useState(0);
 
     // You can pass cuisine and type in props, or through url. 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
+        // Check for token.
+        if (token === '') {
+            // Redirect to login page if no token is present.
+            // window.location.href = '/';
+        }
+        else {
+            console.log("You're authorized, yay!")
+            console.log("dine-in token:", token);
+        }
+        
         let genre = urlParams.get('genre');
         let subGenre = urlParams.get('subGenre');
         API.getRandomRecipe(genre, subGenre)
@@ -33,14 +47,13 @@ function DineIn(props) {
     async function addToFavorites(event) {
         event.preventDefault();
         // TODO: Use token instead of email.
-        let email = "ankushchalla@gmail.com";
         let name = allRecipes[recipeIndex].label;
         let cookTime = allRecipes[recipeIndex].totalTime;
         let servings = allRecipes[recipeIndex].yield;
         let url = allRecipes[recipeIndex].url;
         let image = allRecipes[recipeIndex].image;
-        let recipeData = { email, name, cookTime, servings, url, image};
-        const res = await API.addFavoriteRecipe(recipeData);
+        let recipeData = { name, cookTime, servings, url, image};
+        const res = await API.addFavoriteRecipe(recipeData, token);
         console.log("new recipe:", res.data);
     }
 
@@ -51,9 +64,9 @@ function DineIn(props) {
         }
     }
 
-    console.log("allRecipes:", allRecipes);
     return (
         <div>
+            <Navbar />
             {
                 allRecipes[recipeIndex] == null ?
                     // Check out loading.io for cool loading icons.

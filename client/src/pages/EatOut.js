@@ -1,10 +1,10 @@
 import React , {useEffect , useState} from "react";
-import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import eatOutLogo from "../images/eatOutLogo.svg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import API from "../utils/Api"
+import Navbar from "../components/Navbar";
 
 
 function EatOut(props) {
@@ -45,7 +45,7 @@ function EatOut(props) {
     return (
         
         <div>
-            <OnlyFoodsLogo />
+            <Navbar />
             {
                 restaurant[recipeIndex] == null ?
 
