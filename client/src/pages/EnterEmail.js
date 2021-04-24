@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
-function EnterEmail() {
+function EnterEmail({history}) {
     function sendEmailToServer(event) {
         event.preventDefault();
         axios.post('/passwordreset', {
@@ -19,7 +19,7 @@ function EnterEmail() {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="container">
                 <div className="row spacing">
 

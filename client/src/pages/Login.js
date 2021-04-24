@@ -34,7 +34,7 @@ function Login({history}) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="container">
                 <div className="row spacing">
 

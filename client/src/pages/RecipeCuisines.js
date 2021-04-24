@@ -26,7 +26,7 @@ function RecipeCuisines({history}) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="jumbotron logo py-4 mt-4">
                 <img src={genreLogo} width='70%' alt="Nood Finder Logo"/>
             </div>
