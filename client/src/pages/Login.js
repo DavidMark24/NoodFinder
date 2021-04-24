@@ -28,7 +28,7 @@ function Login({history}) {
             setToken(response.data.token);
         }).catch(function (error) {
             // API will return 401 Unauthorized for bad credentials.
-            console.log(error);
+            console.log(error.message);
         })
     }
 
