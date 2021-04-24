@@ -4,14 +4,16 @@ import Footer from "../components/Footer";
 import API from "../utils/Api";
 import UserContext from "../utils/UserContext";
 import Navbar from "../components/Navbar";
+import LoadingBar from "../images/loadingBar.svg";
+import "../App.css";
 
-function SavedRecipes({history}) {
+function SavedRecipes({ history }) {
     const { token } = useContext(UserContext);
     const [allFavorites, setAllFavorites] = useState([]);
 
     useEffect(() => {
         async function setFavorites() {
-            let response = await API. getAllFavorites(token);
+            let response = await API.getAllFavorites(token);
             setAllFavorites(response.data)
         }
         setFavorites();
@@ -24,14 +26,12 @@ function SavedRecipes({history}) {
 
     return (
         <div>
-            <Navbar history={history}/>
+            <Navbar history={history} />
             {
                 allFavorites.length === 0 ?
-                <div className="d-flex mt-5 justify-content-center">
-                    <div className="spinner-border text-warning" role="status">
-                        <span className="visually-hidden">Loading...</span>
+                    <div className="d-flex mt-5 justify-content-center">
+                        <img className="loading" src={LoadingBar} width="50%" alt="loading" />
                     </div>
-                </div>
                 :
                 <>
                     <div className="container favorite-recipes">
