@@ -4,9 +4,9 @@ import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
 import eatOutLogo from "../images/eatOutLogo.svg";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Choice({history}) {
     function chooseGenre(event) {
@@ -16,7 +16,7 @@ function Choice({history}) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="container">
                 <div className="row logo mt-4">
                     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }} className="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">
@@ -40,8 +40,8 @@ function Choice({history}) {
                         </Link>
                     </motion.div>
                 </div>
-            </div>
             <Footer />
+            </div>
         </div>
     );
 }

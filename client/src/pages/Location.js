@@ -1,31 +1,22 @@
-import React , {useEffect, useState} from "react";
-import location from "../images/location.svg";
+import React , {useState} from "react";
 import submitButton from "../images/submitButton.svg";
+import location from "../images/location.svg";
 import Footer from "../components/Footer";
-import API from "../utils/Api"
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar"
 
-function Location({place}) {
+function Location(props) {
+    const [locationTerm, setLocationTerm ] = useState('')
+  
 
-    const [restaurant , setRestaurant] = useState([])
-
-    async function yelpData() {
-        const {data} = await API.handleYelp("tacos", place) 
-        setRestaurant(data)
-    } 
-
-    useEffect(() => {
-        yelpData()
-    }, [])
-
-    const handleSumbit = e => {
-        e.preventDefault();
-        yelpData()
+    const handleSumbit = (event) => {
+        event.preventDefault();
+        props.history.push(`/eatout/${props.match.params.cuisines}/${locationTerm}}`)
     }
+
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={props.history}/>
             <div className="container">
                 <div className="row spacing">
 
@@ -38,17 +29,17 @@ function Location({place}) {
                         <div className="logo">
                             <img src={location} alt="LoginLogo" height="100" />
                         </div>
-                        <form onSubmit = {handleSumbit} className="login mt-5">
-                            <div className="input-group input-group-lg mt-4 ">
-                            <div className="input-group input-group-lg">
-                                    <input value = {restaurant} onChange = {setRestaurant()} type="text" className="form-control" aria-label="Large"
-                                        aria-describedby="inputGroup-sizing-sm" id="location-input" placeholder="Enter your city or zipcode" required />
-                                </div>
+                    <form onSubmit = {handleSumbit} className="login mt-5">
+                        <div className="input-group input-group-lg mt-4 ">
+                        <div className="input-group input-group-lg">
+                                <input value={locationTerm} onChange = {(e) => setLocationTerm(e.target.value)} type="text" className="form-control" aria-label="Large"
+                                    aria-describedby="inputGroup-sizing-sm" id="location-input" placeholder="Enter your city or zipcode" required />
                             </div>
-                            <div style={{display: "none"}} id="alert" className="alert alert-danger" role="alert">
-                                <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                <span className="sr-only">Error:</span> <span className="msg"></span>
-                            </div>
+                        </div>
+                        <div style={{display: "none"}} id="alert" className="alert alert-danger" role="alert">
+                            <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span className="sr-only">Error:</span> <span className="msg"></span>
+                        </div>
                             <div className="text-center">
                                 <button type="submit" className="btn btn-primary m-3 mt-4 h3 btn-xl"><img src={submitButton} width='100' alt="loginbtn" /></button>
                             </div>
@@ -61,7 +52,7 @@ function Location({place}) {
                 </div>
                 <Footer />
             </div>
-        </div>
+            </div>
     );
 }
 

@@ -7,7 +7,7 @@ import { cuisines } from "../CuisinesData";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-function RestaurantCuisines(props) {
+function RestaurantCuisines({history}) {
     const [cuisineIndex, setCuisineIndex] = useState(0);
 
     function changeCuisine(event) {
@@ -21,7 +21,7 @@ function RestaurantCuisines(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="jumbotron logo py-4 mt-4">
                 <img src={genreLogo} width='70%' alt="Nood Finder Logo"/>
             </div>
@@ -42,7 +42,7 @@ function RestaurantCuisines(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                                <Link to = "/eatout">
+                                <Link to = {`/location/${cuisines[cuisineIndex].name}`}>
                                     <img id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
                                 </Link>
                             </div>
