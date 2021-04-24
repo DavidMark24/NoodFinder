@@ -1,13 +1,16 @@
-import React , {useEffect , useState} from "react";
+import React , {useEffect , useState , useContext} from "react";
 import eatOutLogo from "../images/eatOutLogo.svg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
+import UserContext from "../utils/UserContext";
 import API from "../utils/Api"
 import Navbar from "../components/Navbar";
 
 
 function EatOut(props) {
+
+    const { token } = useContext(UserContext);
     
     const [restaurant , setRestaurant] = useState([])
     const [recipeIndex, setRecipeIndex] = useState(0)
@@ -29,9 +32,18 @@ function EatOut(props) {
         setRecipeIndex(recipeIndex + 1);
     }
 
-    function addToFavorites(event) {
+
+    async function addToFavorites(event) {
         event.preventDefault();
-        // const {image, label, totalTime, yield}
+        // TODO: Use token instead of email.
+        let name = restaurant[recipeIndex].name;
+        let rating = restaurant[recipeIndex].rating;
+        let hours = restaurant[recipeIndex].is_closed;
+        let phone = restaurant[recipeIndex].display_phone;
+        let image_url = restaurant[recipeIndex].image_url;
+        let restaurantData = { name, rating, hours, phone, image_url};
+        const res = await API.addFavoriteRestaurant(restaurantData, token);
+        console.log("new recipe:", res.data);
     }
     
     function shuffleRecipes(array) {
@@ -84,7 +96,7 @@ function EatOut(props) {
                                     {/* Empty column */}
                                 </div>
                                 <div className="col-4">
-                                <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
+                                <img onClick={e => addToFavorites(e)} src={acceptButton} width='100%' alt="" />
                                 </div>
                             </div>
                         </div>

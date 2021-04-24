@@ -5,14 +5,20 @@ const restaurantsSchema = new Schema({
     name: {
         type: String,
     },
+    rating: {
+        type: Number
+    },
     hours: {
         type: Boolean
     },
-    phoneNumber: {
-        type: Number
+    phone: {
+        type: String
+    },
+    image_url: {
+        type: String
     }
 });
 
-const Restaurant = mongoose.model("Restaurants", restaurantsSchema);
+// const restaurantsSchema = mongoose.model("Restaurants", restaurantsSchema);
 
-module.exports = Restaurant;
+module.exports = restaurantsSchema;

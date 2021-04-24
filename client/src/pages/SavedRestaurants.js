@@ -12,7 +12,7 @@ function SavedRestaurants() {
                 <img src={onlyFoodsLogo} height='150' alt="Nood Finder Logo"/>
             </div>
             <div className="container">
-                <h1 class="text-center">Saved Restaurants</h1>
+                <h1 className="text-center">Saved Restaurants</h1>
                 <SavedCard />
             </div>
             <Footer />
