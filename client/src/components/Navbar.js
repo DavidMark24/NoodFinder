@@ -8,10 +8,15 @@ function Navbar({history}) {
         history.push('/savedrecipes');
     }
 
+    function toChoice(event) {
+        event.preventDefault();
+        history.push('/choice');
+    }
+
     return (
         <div>
             <nav className="navbar navbar-light navbar-color">
-                <a className="navbar-brand mx-3 my-1" href="/choice">
+                <a onClick={(e) => toChoice(e)} className="navbar-brand mx-3 my-1" href="/choice">
                     <h1 className="white">Only <strong>F<img src={TwoOs} width="60" alt="" />ds</strong></h1>
                 </a>
                 <a onClick={(e) => toSavedRecipes(e)} href="/savedrecipes">
