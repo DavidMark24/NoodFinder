@@ -5,8 +5,9 @@ import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import { cuisines } from "../CuisinesData";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
-function RestaurantCuisines(props) {
+function RestaurantCuisines({history}) {
     const [cuisineIndex, setCuisineIndex] = useState(0);
 
     function changeCuisine(event) {
@@ -20,11 +21,12 @@ function RestaurantCuisines(props) {
 
     return (
         <div>
-            <div className="jumbotron logo py-4">
+            <Navbar history={history}/>
+            <div className="jumbotron logo py-4 mt-4">
                 <img src={genreLogo} width='70%' alt="Nood Finder Logo"/>
             </div>
             <div className="container logo">
-                <div className="col-lg-5 col-m-7 col-sm-8 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
+                <div className="col-lg-5 col-m-7 col-sm-8 shadow-lg p-3 m-4 my-3 extra-rounded tan_bg">
                     <div className="box light_brown_bg p-2 rounded">
                         <img className="rounded" src={cuisines[cuisineIndex].image} width='100%' alt=""/>
                     </div>
@@ -40,7 +42,7 @@ function RestaurantCuisines(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                                <Link to = "/eatout">
+                                <Link to = {`/location/${cuisines[cuisineIndex].name}`}>
                                     <img id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
                                 </Link>
                             </div>

@@ -6,7 +6,7 @@ const restaurantsSchema = new Schema({
         type: String,
     },
     hours: {
-        type: Number
+        type: Boolean
     },
     phoneNumber: {
         type: Number

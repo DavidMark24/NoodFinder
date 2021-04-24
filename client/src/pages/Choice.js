@@ -1,5 +1,4 @@
 import React from "react";
-import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
@@ -17,7 +16,6 @@ function Choice({history}) {
     return (
         <div>
             <Navbar history={history}/>
-            <OnlyFoodsLogo width="50%"/>
             <div class="container">
                 <div class="row logo">
                     <div class="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">

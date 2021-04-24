@@ -1,7 +1,11 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #cfcbc1;
+  background-color: #fff7ec;
   font-size: 16px;
+}
+
+.navbar-color {
+  background-color: #97938c;
 }
 
 h1 {
@@ -160,3 +164,24 @@ p {
   bottom: 5px;
   right: 5px;
 }
+.footer-box {
+  display: flex;
+  height: 15px;
+  justify-content: center;
+  align-items: flex-end;
+  height: 15vh;
+}
+
+.navbar-box-left {
+  display: flex;
+  justify-content: right;
+}
+
+.navbar-box-right {
+  display: flex;
+  justify-content: right;
+}
+
+/* .container {
+  height: 70vh;
+} */

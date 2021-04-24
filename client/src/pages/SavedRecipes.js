@@ -4,8 +4,9 @@ import RecipeCard from "../components/SavedCard";
 import Footer from "../components/Footer";
 import API from "../utils/Api";
 import UserContext from "../utils/UserContext";
+import Navbar from "../components/Navbar";
 
-function SavedRecipes() {
+function SavedRecipes({history}) {
     const { token } = useContext(UserContext);
     const [allFavorites, setAllFavorites] = useState([]);
 
@@ -24,6 +25,7 @@ function SavedRecipes() {
 
     return (
         <div>
+            <Navbar history={history}/>
             {
                 allFavorites.length === 0 ?
                     <div className="d-flex mt-5 justify-content-center">
@@ -51,6 +53,7 @@ function SavedRecipes() {
                         </div>
                     </>
             }
+            
             <Footer />
 
         </div>

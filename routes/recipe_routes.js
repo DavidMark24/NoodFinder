@@ -50,7 +50,6 @@ router.post('/api/recipes', passport.authenticate('bearer'), async ({body, user}
 
 // Remove a recipe from favorite recipes.
 router.delete('/api/recipes/:recipeID', passport.authenticate('bearer'),async (req, res) => {
-    console.log("user:", req.user);
     const userID = req.user._id;
     const recipeID = req.params.recipeID;
     db.User.findOne({ _id: userID })
