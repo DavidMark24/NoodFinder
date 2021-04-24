@@ -16,7 +16,7 @@ function Location(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={props.history}/>
             <div className="container">
                 <div className="row spacing">
 

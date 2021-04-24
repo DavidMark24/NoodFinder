@@ -45,7 +45,7 @@ function EatOut(props) {
     return (
         
         <div>
-            <Navbar />
+            <Navbar history={props.history}/>
             {
                 restaurant[recipeIndex] == null ?
 

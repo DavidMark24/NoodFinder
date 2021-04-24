@@ -7,7 +7,7 @@ import UserContext from "../utils/UserContext";
 import API from "../utils/Api";
 import Navbar from "../components/Navbar";
 
-function DineIn(props) {
+function DineIn({history}) {
     const { token } = useContext(UserContext);
 
     const [allRecipes, setAllRecipes] = useState([]);
@@ -19,13 +19,9 @@ function DineIn(props) {
         // Check for token.
         if (token === '') {
             // Redirect to login page if no token is present.
-            // window.location.href = '/';
+            window.location.href = '/';
         }
-        else {
-            console.log("You're authorized, yay!")
-            console.log("dine-in token:", token);
-        }
-        
+     
         let genre = urlParams.get('genre');
         let subGenre = urlParams.get('subGenre');
         API.getRandomRecipe(genre, subGenre)
@@ -41,6 +37,10 @@ function DineIn(props) {
 
     function changeRecipe(event) {
         event.preventDefault();
+        if (recipeIndex === recipeIndex.length - 1) {
+            alert("Choose something already! Take it from the top.");
+            setRecipeIndex(0);
+        }
         setRecipeIndex(recipeIndex + 1);
     }
 
@@ -54,7 +54,7 @@ function DineIn(props) {
         let image = allRecipes[recipeIndex].image;
         let recipeData = { name, cookTime, servings, url, image};
         const res = await API.addFavoriteRecipe(recipeData, token);
-        console.log("new recipe:", res.data);
+        changeRecipe(event);
     }
 
     function shuffleRecipes(array) {
@@ -66,7 +66,7 @@ function DineIn(props) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             {
                 allRecipes[recipeIndex] == null ?
                     // Check out loading.io for cool loading icons.

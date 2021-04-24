@@ -4,8 +4,8 @@ import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
 import eatOutLogo from "../images/eatOutLogo.svg";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 function Choice({history}) {
     function chooseGenre(event) {
@@ -15,7 +15,7 @@ function Choice({history}) {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div class="container">
                 <div class="row logo">
                     <div class="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">

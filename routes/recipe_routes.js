@@ -30,7 +30,6 @@ router.get('/api/recipes', passport.authenticate('bearer'), async ({user}, res) 
 
 // Add to favorites.
 router.post('/api/recipes', passport.authenticate('bearer'), async ({body, user}, res) => {
-    console.log("body:", body, user);
     // res.json("post successful!")
     const email = user.email;
     const { name, cookTime, servings, url, image } = body;
@@ -49,14 +48,15 @@ router.post('/api/recipes', passport.authenticate('bearer'), async ({body, user}
     })
 })
 
-// Remove from favorite recipes.
-router.delete('/api/recipes/:email/:recipeID', async (req, res) => {
-    const { email, recipeID } = req.params;
-    db.User.findOne({ email })
+// Remove a recipe from favorite recipes.
+router.delete('/api/recipes/:recipeID', passport.authenticate('bearer'),async (req, res) => {
+    const userID = req.user._id;
+    const recipeID = req.params.recipeID;
+    db.User.findOne({ _id: userID })
         .then(async (user) => {
             await user.favoriteRecipes.id(recipeID).remove();
             user.save();
-            res.json("delete successful!")
+            res.json(user.favoriteRecipes)
         })
 
 })

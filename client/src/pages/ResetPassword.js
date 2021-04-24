@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
-function ResetPassword() {
+function ResetPassword({history}) {
     function sendNewPassword(event) {
         event.preventDefault();
         const urlParams = new URLSearchParams(window.location.search);
@@ -28,7 +28,7 @@ function ResetPassword() {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="container">
                 <div className="row spacing">
 

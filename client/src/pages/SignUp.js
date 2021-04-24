@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import axios from 'axios';
 import Navbar from "../components/Navbar";
 
-function SignUp() {
+function SignUp({history}) {
     const getElementValue = (id) => document.getElementById(id).value;
     function createNewUser(event) {
         event.preventDefault();
@@ -27,7 +27,7 @@ function SignUp() {
 
     return (
         <div>
-            <Navbar />
+            <Navbar history={history}/>
             <div className="container">
                 <div className="row spacing">
 

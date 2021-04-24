@@ -31,6 +31,17 @@ const API = {
     };
     return axios(config);
   },
+  removeFromFavorites: (token, recipeID) => {
+    let config = {
+      method: 'delete',
+      url: `/api/recipes/${recipeID}`,
+      headers: { 
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json'
+      }
+    };
+    return axios(config);
+  },
 // Yelp
   handleYelp: (searchTerms, searchLocation) => {
     return axios.get(
