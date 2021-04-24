@@ -32,28 +32,25 @@ function SavedRecipes({ history }) {
                     <div className="d-flex mt-5 justify-content-center">
                         <img className="loading" src={LoadingBar} width="50%" alt="loading" />
                     </div>
-                    :
-                    <>
-                        <div className="container favorite-recipes">
-                            <h1 class="text-center">Saved Recipes</h1>
-                            {allFavorites.map(recipe => <RecipeCard
-                                key={recipe._id}
-                                recipeID={recipe._id}
-                                cookTime={recipe.cookTime}
-                                image={recipe.image}
-                                name={recipe.name}
-                                servings={recipe.servings}
-                                url={recipe.url}
-                                removeFromFavorites={removeFromFavorites}
-                            />)}
-                        </div>
-                    </>
+                :
+                <>
+                    <div className="container favorite-recipes">
+                        <h1 class="text-center">Saved Recipes</h1>
+                        {allFavorites.map(recipe => <RecipeCard
+                            key={recipe._id}
+                            recipeID={recipe._id}
+                            cookTime={recipe.cookTime}
+                            image={recipe.image}
+                            name={recipe.name}
+                            servings={recipe.servings}
+                            url={recipe.url}
+                            removeFromFavorites={removeFromFavorites}
+                        />)}
+                    </div>
+                </>
             }
-
             <Footer />
-
         </div>
-
     );
 }
 

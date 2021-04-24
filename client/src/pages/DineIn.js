@@ -13,17 +13,6 @@ function DineIn({history}) {
 
     const [allRecipes, setAllRecipes] = useState([]);
     const [recipeIndex, setRecipeIndex] = useState(0);
-    const [likeOrDislike, setLikeOrDislike] = useState(0);
-
-    function checkLikeOrDislike(event) {
-        event.preventDefault();
-        if (likeOrDislike === 1) {
-            alert("Liked");
-        }
-        else if (likeOrDislike === -1){
-            alert("Disliked");
-        };
-    }
 
     // You can pass cuisine and type in props, or through url. 
     useEffect(() => {
@@ -52,7 +41,6 @@ function DineIn({history}) {
         if (recipeIndex === recipeIndex.length - 1) {
             alert("Choose something already! Take it from the top.");
             setRecipeIndex(0);
-            setLikeOrDislike(0);
         }
         setRecipeIndex(recipeIndex + 1);
     }
@@ -91,7 +79,7 @@ function DineIn({history}) {
                     :
                     <>
                         <div className="jumbotron logo py-4">
-                            <img src={dineInLogo} height='150' alt="Nood Finder Logo" />
+                            <img src={dineInLogo} width='60%' alt="Nood Finder Logo" />
                         </div>
                         <div className="container logo">
                         <AnimatePresence>
@@ -113,13 +101,13 @@ function DineIn({history}) {
                                     </div>
                                     <div className="row text-center mt-4">
                                         <div className="col-4">
-                                            <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{changeRecipe(e); setLikeOrDislike(1).then(checkLikeOrDislike())}} width='100%' alt="" />
+                                            <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
                                         </div>
                                         <div className="col-4">
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => {changeRecipe(e); addToFavorites(e); setLikeOrDislike(1).then(checkLikeOrDislike())}} width='100%' alt="" />
+                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => {changeRecipe(e); addToFavorites(e);}} width='100%' alt="" />
                                         </div>
                                     </div>
                                 </div>
