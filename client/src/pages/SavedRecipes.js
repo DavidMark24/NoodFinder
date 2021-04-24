@@ -3,12 +3,10 @@ import onlyFoodsLogo from "../images/onlyFoodsLogo.svg";
 import RecipeCard from "../components/SavedCard";
 import Footer from "../components/Footer";
 import API from "../utils/Api";
-// import UserContext from "../utils/UserContext";
+import UserContext from "../utils/UserContext";
 
 function SavedRecipes() {
-    // const { token } = useContext(UserContext);
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFua3VzaGNoYWxsYUBnbWFpbC5jb20ifQ.sI89oeO8rtRDIJmXFYLqsl3kb4qB1fNmW3p2iIvYIM0'
-    // console.log("token:", token);
+    const { token } = useContext(UserContext);
     const [allFavorites, setAllFavorites] = useState([]);
 
     useEffect(() => {
@@ -19,7 +17,11 @@ function SavedRecipes() {
         setFavorites();
     }, [])
 
-    console.log("all favorites:", allFavorites);
+    async function removeFromFavorites(recipeID) {
+        const favorites = await API.removeFromFavorites(token, recipeID);
+        setAllFavorites(favorites.data);
+    }
+
     return (
         <div>
             {
@@ -34,7 +36,7 @@ function SavedRecipes() {
                         <div className="jumbotron logo py-4">
                             <img src={onlyFoodsLogo} height='150' alt="Nood Finder Logo" />
                         </div>
-                        <div className="container">
+                        <div className="container favorite-recipes">
                             <h1 class="text-center">Saved Recipes</h1>
                             {allFavorites.map(recipe => <RecipeCard
                                 key={recipe._id}
@@ -44,6 +46,7 @@ function SavedRecipes() {
                                 name={recipe.name}
                                 servings={recipe.servings}
                                 url={recipe.url}
+                                removeFromFavorites={removeFromFavorites}
                             />)}
                         </div>
                     </>

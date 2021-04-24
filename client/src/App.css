@@ -126,9 +126,37 @@ p {
   border-radius: 20px;
 }
 
-.cuisine-box {
+.favorite-recipes {
   display: flex;
-  height: 100px;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+.cuisine-box {
+  position: relative;
+  display: flex;
+  height: fit-content;
+  flex-wrap: wrap;
+  /* width: 45vw; */
+  align-items: center;
+}
+
+.recipe-image {
+  height: 200px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.recipe-info {
+  display: flex;
+  flex: 1 1 150px;
+  flex-direction: column;
+  margin: 5px 15px;
+}
+
+.reject-recipe-svg {
+  position: absolute;
+  width: 70px;
+  bottom: 5px;
+  right: 5px;
 }

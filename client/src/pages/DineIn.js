@@ -20,10 +20,7 @@ function DineIn(props) {
             // Redirect to login page if no token is present.
             window.location.href = '/';
         }
-        else {
-            console.log("You're authorized, yay!")
-        }
-        
+     
         let genre = urlParams.get('genre');
         let subGenre = urlParams.get('subGenre');
         API.getRandomRecipe(genre, subGenre)
@@ -56,7 +53,7 @@ function DineIn(props) {
         let image = allRecipes[recipeIndex].image;
         let recipeData = { name, cookTime, servings, url, image};
         const res = await API.addFavoriteRecipe(recipeData, token);
-        console.log("new recipe:", res.data);
+        changeRecipe(event);
     }
 
     function shuffleRecipes(array) {
