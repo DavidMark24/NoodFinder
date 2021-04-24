@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { cuisines } from "../CuisinesData";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { motion, AnimatePresence } from "framer-motion";
 
 function RecipeCuisines({history}) {
     const [cuisineIndex, setCuisineIndex] = useState(0);
@@ -31,7 +32,8 @@ function RecipeCuisines({history}) {
                 <img src={genreLogo} width='70%' alt="Nood Finder Logo"/>
             </div>
             <div className="container logo">
-                <div className="col-lg-5 col-m-7 col-sm-8 shadow-lg p-3 m-4 my-3 extra-rounded tan_bg">
+            <AnimatePresence>
+                <motion.div key={cuisineIndex} animate={{ x: 0, opacity: 1 }} initial={{ x: 0, opacity: 0 }} exit={{ x: -600, opacity: 0 }} className="col-lg-5 col-m-7 col-sm-8 shadow-lg p-3 m-4 my-3 extra-rounded tan_bg">
                     <div className="box light_brown_bg p-2 rounded">
                         <img className="rounded" src={cuisines[cuisineIndex].image} width='100%' alt=""/>
                     </div>
@@ -41,19 +43,20 @@ function RecipeCuisines({history}) {
                         </div>
                         <div className="row text-center mt-4">
                             <div className="col-4">
-                                <img onClick={e => changeCuisine(e)} src={rejectButton} width='100%' alt=""/>
+                                <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }}  onClick={e => changeCuisine(e)} src={rejectButton} width='100%' alt=""/>
                             </div>
                             <div className="col-4">
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
                                 <Link to = '/meal' onClick={(e) => chooseSubGenre(e)}>
-                                    <img id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
+                                    <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}  id={cuisines[cuisineIndex].id} src={acceptButton} width='100%' alt=""/>
                                 </Link>
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
+            </AnimatePresence>
             </div>
             <Footer />
         </div>
