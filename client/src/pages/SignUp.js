@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
 import Footer from "../components/Footer";
 import axios from 'axios';
 import Navbar from "../components/Navbar";
+import UserContext from "../utils/UserContext";
 
 function SignUp({history}) {
+    const { setToken } = useContext(UserContext);
+
     const getElementValue = (id) => document.getElementById(id).value;
     function createNewUser(event) {
         event.preventDefault();
@@ -18,8 +21,8 @@ function SignUp({history}) {
         keys.forEach((key, i) => data[key] = inputValues[i])
         axios.post('/newUser', data)
             .then(response => {
-                console.log(response);
-                history.push('/');
+                setToken(response.data.token);
+                history.push('/choice');
             })
             .catch(error => {
                 console.log(error);
