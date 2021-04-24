@@ -3,7 +3,7 @@ import TwoOs from "../images/twoOs.svg";
 import AccountIcon from "../images/accountIcon.svg";
 import { motion } from "framer-motion";
 
-function Navbar() {
+function Navbar({history}) {
     return (
         <div>
             <nav className="navbar navbar-light navbar-color">

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import onlyFoodsLogo from "../images/onlyFoodsLogo.svg";
 import RecipeCard from "../components/SavedCard";
 import Footer from "../components/Footer";
 import API from "../utils/Api";
@@ -12,7 +11,7 @@ function SavedRecipes({history}) {
 
     useEffect(() => {
         async function setFavorites() {
-            let response = await API.getAllFavorites(token);
+            let response = await API. getAllFavorites(token);
             setAllFavorites(response.data)
         }
         setFavorites();
@@ -35,9 +34,6 @@ function SavedRecipes({history}) {
                     </div>
                     :
                     <>
-                        <div className="jumbotron logo py-4">
-                            <img src={onlyFoodsLogo} height='150' alt="Nood Finder Logo" />
-                        </div>
                         <div className="container favorite-recipes">
                             <h1 class="text-center">Saved Recipes</h1>
                             {allFavorites.map(recipe => <RecipeCard
