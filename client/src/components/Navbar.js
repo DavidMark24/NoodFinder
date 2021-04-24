@@ -8,6 +8,11 @@ function Navbar({history}) {
         history.push('/savedrecipes');
     }
 
+    function toSavedRestaurants(event) {
+        event.preventDefault();
+        history.push('/savedrestaurants');
+    }
+
     return (
         <div>
             <nav className="navbar navbar-light navbar-color">
@@ -15,6 +20,9 @@ function Navbar({history}) {
                     <h1 className="white">Only <strong>F<img src={TwoOs} width="60" alt="" />ds</strong></h1>
                 </a>
                 <a onClick={(e) => toSavedRecipes(e)} href="/savedrecipes">
+                    <img className="navbar-box-right mx-4" src={AccountIcon} width="60" alt="" />
+                </a>
+                <a onClick={(e) => toSavedRestaurants(e)} href="/savedrestaurants">
                     <img className="navbar-box-right mx-4" src={AccountIcon} width="60" alt="" />
                 </a>
             </nav>

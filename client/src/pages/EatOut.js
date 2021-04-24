@@ -19,7 +19,7 @@ function EatOut(props) {
     
     
     useEffect(() => {
-        API.handleYelp(props.match.params.cuisines ,props.match.params.locationTerm)
+        API.handleYelp(props.match.params.cuisines , props.match.params.locationTerm)
             .then(response => {
                 setRestaurant(response.data)
                 shuffleRecipes(response.data);

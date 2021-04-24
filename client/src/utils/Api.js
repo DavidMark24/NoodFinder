@@ -71,7 +71,17 @@ const API = {
     };
     return axios(config);
   },
-
+  removeFromRestaurants: (token, restaurantID) => {
+    let config = {
+      method: 'delete',
+      url: `/api/restaurants/${restaurantID}`,
+      headers: { 
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json'
+      }
+    };
+    return axios(config);
+  },
   
 };
 export default API;

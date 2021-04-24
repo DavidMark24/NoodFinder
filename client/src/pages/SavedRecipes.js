@@ -12,7 +12,7 @@ function SavedRecipes({history}) {
 
     useEffect(() => {
         async function setFavorites() {
-            let response = await API.getAllFavorites(token);
+            let response = await API.getAllRestaurants(token);
             setAllFavorites(response.data)
         }
         setFavorites();
