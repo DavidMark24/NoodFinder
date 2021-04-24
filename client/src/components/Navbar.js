@@ -9,6 +9,11 @@ function Navbar({history}) {
         history.push('/savedrecipes');
     }
 
+    function toSavedRestaurants(event) {
+        event.preventDefault();
+        history.push('/savedrestaurants');
+    }
+
     return (
         <div>
             <nav className="navbar navbar-light navbar-color">
@@ -17,6 +22,9 @@ function Navbar({history}) {
                 </motion.a>
                 <a onClick={(e) => toSavedRecipes(e)} href="/savedrecipes">
                     <motion.img key={AccountIcon} src={AccountIcon} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="navbar-box-right mx-4" width="60" alt="" />
+                </a>
+                <a onClick={(e) => toSavedRestaurants(e)} href="/savedrestaurants">
+                    <img className="navbar-box-right mx-4" src={AccountIcon} width="60" alt="" />
                 </a>
             </nav>
         </div>

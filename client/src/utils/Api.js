@@ -48,7 +48,40 @@ const API = {
       `/api/restaurantsearch/${searchTerms}/${searchLocation}`
     );
   },
-
+  addFavoriteRestaurant: (restaurantData, token) => {
+    let config = {
+      method: 'post',
+      url: '/api/restaurants',
+      headers: { 
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json'
+      },
+      data : restaurantData
+    };
+    return axios(config);
+  },
+  getAllRestaurants: (token) => {
+    let config = {
+      method: 'get',
+      url: '/api/restaurants',
+      headers: { 
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json'
+      }
+    };
+    return axios(config);
+  },
+  removeFromRestaurants: (token, restaurantID) => {
+    let config = {
+      method: 'delete',
+      url: `/api/restaurants/${restaurantID}`,
+      headers: { 
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json'
+      }
+    };
+    return axios(config);
+  },
   
 };
 export default API;

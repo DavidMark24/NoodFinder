@@ -1,18 +1,22 @@
-import React , {useEffect , useState} from "react";
+import React , {useEffect , useState , useContext} from "react";
 import eatOutLogo from "../images/eatOutLogo.svg";
 import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
+import UserContext from "../utils/UserContext";
 import API from "../utils/Api"
 import Navbar from "../components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 
 function EatOut(props) {
+
+    const { token } = useContext(UserContext);
+    
     const [restaurant , setRestaurant] = useState([])
     const [recipeIndex, setRecipeIndex] = useState(0)
 
     useEffect(() => {
-        API.handleYelp(props.match.params.cuisines ,props.match.params.locationTerm)
+        API.handleYelp(props.match.params.cuisines , props.match.params.locationTerm)
             .then(response => {
                 setRestaurant(response.data)
                 shuffleRecipes(response.data);
@@ -25,9 +29,18 @@ function EatOut(props) {
         setRecipeIndex(recipeIndex + 1);
     }
 
-    function addToFavorites(event) {
+
+    async function addToFavorites(event) {
         event.preventDefault();
-        // const {image, label, totalTime, yield}
+        // TODO: Use token instead of email.
+        let name = restaurant[recipeIndex].name;
+        let rating = restaurant[recipeIndex].rating;
+        let hours = restaurant[recipeIndex].is_closed;
+        let phone = restaurant[recipeIndex].display_phone;
+        let image_url = restaurant[recipeIndex].image_url;
+        let restaurantData = { name, rating, hours, phone, image_url};
+        const res = await API.addFavoriteRestaurant(restaurantData, token);
+        console.log("new recipe:", res.data);
     }
     
     function shuffleRecipes(array) {
@@ -79,7 +92,7 @@ function EatOut(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
+                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => addToFavorites(e)} width='100%' alt="" />
                             </div>
                         </div>
                     </div>
