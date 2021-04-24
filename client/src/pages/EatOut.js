@@ -91,21 +91,8 @@ function EatOut(props) {
                             <div className="col-4">
                                 {/* Empty column */}
                             </div>
-<<<<<<< HEAD
-                            <div className="row text-center mt-4">
-                                <div className="col-4">
-                                <img onClick={e => changeRecipe(e)} src={rejectButton} width='100%' alt="" />
-                                </div>
-                                <div className="col-4">
-                                    {/* Empty column */}
-                                </div>
-                                <div className="col-4">
-                                <img onClick={e => addToFavorites(e)} src={acceptButton} width='100%' alt="" />
-                                </div>
-=======
                             <div className="col-4">
-                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
->>>>>>> 1bf67bfe2350baefbd4a389458ae977e9b66d2a3
+                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => addToFavorites(e)} width='100%' alt="" />
                             </div>
                         </div>
                     </div>

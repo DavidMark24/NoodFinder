@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import onlyFoodsLogo from "../images/onlyFoodsLogo.svg";
-import SavedCard from "../components/SavedCard";
 import RecipeCard from "../components/SavedCard2";
 import Footer from "../components/Footer";
 import UserContext from "../utils/UserContext";
@@ -37,9 +35,6 @@ function SavedRestaurants({history}) {
                     </div>
                     :
                     <>
-                        <div className="jumbotron logo py-4">
-                            <img src={onlyFoodsLogo} height='150' alt="Nood Finder Logo" />
-                        </div>
                         <div className="container favorite-recipes">
                             <h1 class="text-center">Saved Restaurants</h1>
                             {allFavorites.map(restaurant => <RecipeCard
