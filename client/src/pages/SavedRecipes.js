@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import API from "../utils/Api";
 import UserContext from "../utils/UserContext";
 import Navbar from "../components/Navbar";
+import LoadingBar from "../images/loadingBar.svg";
+import "../App.css";
 
 function SavedRecipes({ history }) {
     const { token } = useContext(UserContext);
@@ -28,9 +30,7 @@ function SavedRecipes({ history }) {
             {
                 allFavorites.length === 0 ?
                     <div className="d-flex mt-5 justify-content-center">
-                        <div className="spinner-border text-warning" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
+                        <img className="loading" src={LoadingBar} width="50%" alt="loading" />
                     </div>
                     :
                     <>
