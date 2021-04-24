@@ -5,16 +5,12 @@ import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import API from "../utils/Api"
 import Navbar from "../components/Navbar";
-
+import { motion, AnimatePresence } from "framer-motion";
 
 function EatOut(props) {
-    
     const [restaurant , setRestaurant] = useState([])
     const [recipeIndex, setRecipeIndex] = useState(0)
 
-
-    
-    
     useEffect(() => {
         API.handleYelp(props.match.params.cuisines ,props.match.params.locationTerm)
             .then(response => {
@@ -41,9 +37,7 @@ function EatOut(props) {
         }
     }
 
-    
     return (
-        
         <div>
             <Navbar history={props.history}/>
             {
@@ -61,34 +55,36 @@ function EatOut(props) {
                 <img src={eatOutLogo} height='150' alt="Nood Finder Logo"/>
             </div>
             <div className="container logo">
-                    <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
-                        <div className="box light_brown_bg p-2 rounded">
-                            <img className="rounded" src={restaurant[recipeIndex].image_url} width='100%' alt=""/>
+            <AnimatePresence>
+                <motion.div key={recipeIndex} animate={{ x: 0, opacity: 1 }} initial={{ x: 0, opacity: 0 }} exit={{ x: -600, opacity: 0 }} className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
+                    <div className="box light_brown_bg p-2 rounded">
+                        <img className="rounded" src={restaurant[recipeIndex].image_url} width='100%' alt=""/>
+                    </div>
+                    <div className="p-3">
+                        <div className="row text-center">
+                        {  console.log(restaurant[recipeIndex].name)}
+                            <h1><strong>{restaurant[recipeIndex].name}</strong></h1>
                         </div>
-                        <div className="p-3">
-                            <div className="row text-center">
-                            {  console.log(restaurant[recipeIndex].name)}
-                                <h1><strong>{restaurant[recipeIndex].name}</strong></h1>
+                        <div className="row text-center">
+                            <h3>{restaurant[recipeIndex].is_closed === false ? "Open " : "Close"}</h3>
+                        </div>
+                        <div className="row text-center">
+                            <h3>{restaurant[recipeIndex].display_phone}</h3>
+                        </div>
+                        <div className="row text-center mt-4">
+                            <div className="col-4">
+                            <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
                             </div>
-                            <div className="row text-center">
-                                <h3>{restaurant[recipeIndex].is_closed === false ? "Open " : "Close"}</h3>
+                            <div className="col-4">
+                                {/* Empty column */}
                             </div>
-                            <div className="row text-center">
-                                <h3>{restaurant[recipeIndex].display_phone}</h3>
-                            </div>
-                            <div className="row text-center mt-4">
-                                <div className="col-4">
-                                <img onClick={e => changeRecipe(e)} src={rejectButton} width='100%' alt="" />
-                                </div>
-                                <div className="col-4">
-                                    {/* Empty column */}
-                                </div>
-                                <div className="col-4">
-                                <img onClick={e => changeRecipe(e)} src={acceptButton} width='100%' alt="" />
-                                </div>
+                            <div className="col-4">
+                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
                             </div>
                         </div>
                     </div>
+                </motion.div>
+                </AnimatePresence>
             </div>
             </>
 }

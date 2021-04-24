@@ -6,13 +6,11 @@ import Navbar from "../components/Navbar"
 
 function Location(props) {
     const [locationTerm, setLocationTerm ] = useState('')
-  
 
     const handleSumbit = (event) => {
         event.preventDefault();
         props.history.push(`/eatout/${props.match.params.cuisines}/${locationTerm}}`)
     }
-
 
     return (
         <div>
@@ -27,7 +25,7 @@ function Location(props) {
                     </div>
                     <div className="col-8 shadow-lg px-5 pt-5 pb-3 my-5 tan_bg rounded">
                         <div className="logo">
-                            <img src={location} alt="LoginLogo" height="100" />
+                            <img src={location} alt="LoginLogo" width="100%" />
                         </div>
                     <form onSubmit = {handleSumbit} className="login mt-5">
                         <div className="input-group input-group-lg mt-4 ">

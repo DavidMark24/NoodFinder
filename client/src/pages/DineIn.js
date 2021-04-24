@@ -22,7 +22,7 @@ function DineIn({history}) {
             // Redirect to login page if no token is present.
             window.location.href = '/';
         }
-     
+
         let genre = urlParams.get('genre');
         let subGenre = urlParams.get('subGenre');
         API.getRandomRecipe(genre, subGenre)
@@ -106,9 +106,9 @@ function DineIn({history}) {
                                         <div className="col-4">
                                             {/* Empty column */}
                                         </div>
-                                        <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="col-4">
-                                            <img onClick={e => addToFavorites(e)} src={acceptButton} width='100%' alt="" />
-                                        </motion.div>
+                                        <div className="col-4">
+                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => {changeRecipe(e); addToFavorites(e)}} width='100%' alt="" />
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
