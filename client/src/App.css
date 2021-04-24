@@ -145,6 +145,13 @@ p {
   align-items: center;
 }
 
+.meal-box {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
 .recipe-image {
   height: 200px;
   border-radius: 15px;
