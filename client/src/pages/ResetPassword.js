@@ -20,6 +20,8 @@ function ResetPassword({history}) {
         axios.post('/resetpassword', data)
             .then(response => {
                 console.log(response)
+                alert("Your password has been updated :)")
+                history.push('/')
             }).catch(error => {
                 console.log(error);
             })

@@ -19,7 +19,7 @@ function SignUp({history}) {
         axios.post('/newUser', data)
             .then(response => {
                 console.log(response);
-                history.push('/')
+                history.push('/');
             })
             .catch(error => {
                 console.log(error);
