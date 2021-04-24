@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import dineIn from "../images/dineInSquare.jpg";
 import dineInLogo from "../images/dineInLogo.svg";
 import eatOut from "../images/eatOutSquare.jpg";
 import eatOutLogo from "../images/eatOutLogo.svg";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 function Choice({history}) {
@@ -15,6 +16,7 @@ function Choice({history}) {
 
     return (
         <div>
+            <Navbar history={history}/>
             <OnlyFoodsLogo width="50%"/>
             <div class="container">
                 <div class="row logo">

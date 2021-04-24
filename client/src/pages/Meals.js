@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import subgenreLogo from "../images/subgenre.svg";
 import Footer from "../components/Footer";
-import UserContext from '../utils/UserContext'
 
 function Meals({history}) {
     function getRecipes(subGenre) {

@@ -18,11 +18,10 @@ function DineIn(props) {
         // Check for token.
         if (token === '') {
             // Redirect to login page if no token is present.
-            // window.location.href = '/';
+            window.location.href = '/';
         }
         else {
             console.log("You're authorized, yay!")
-            console.log("dine-in token:", token);
         }
         
         let genre = urlParams.get('genre');
@@ -40,6 +39,10 @@ function DineIn(props) {
 
     function changeRecipe(event) {
         event.preventDefault();
+        if (recipeIndex === recipeIndex.length - 1) {
+            alert("Choose something already! Take it from the top.");
+            setRecipeIndex(0);
+        }
         setRecipeIndex(recipeIndex + 1);
     }
 
