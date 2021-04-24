@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import UserContext from "../utils/UserContext";
 import API from "../utils/Api";
 import Navbar from "../components/Navbar";
+import { motion, AnimatePresence } from "framer-motion";
 
 function DineIn(props) {
     const { token } = useContext(UserContext);
@@ -81,7 +82,8 @@ function DineIn(props) {
                             <img src={dineInLogo} height='150' alt="Nood Finder Logo" />
                         </div>
                         <div className="container logo">
-                            <div className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
+                        <AnimatePresence>
+                            <motion.div key={recipeIndex} animate={{ x: 0, opacity: 1 }} initial={{ x: 0, opacity: 0 }} exit={{ x: -600, opacity: 0 }} className="col-md-5 col-sm-12 shadow-lg p-3 m-4 my-5 extra-rounded tan_bg">
                                 <div className="box light_brown_bg p-2 rounded">
                                     <a href={allRecipes[recipeIndex].url}>
                                         <img className="rounded" src={allRecipes[recipeIndex].image} width='100%' alt="" />
@@ -99,17 +101,18 @@ function DineIn(props) {
                                     </div>
                                     <div className="row text-center mt-4">
                                         <div className="col-4">
-                                            <img onClick={e => changeRecipe(e)} src={rejectButton} width='100%' alt="" />
+                                            <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
                                         </div>
                                         <div className="col-4">
                                             {/* Empty column */}
                                         </div>
-                                        <div className="col-4">
+                                        <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="col-4">
                                             <img onClick={e => addToFavorites(e)} src={acceptButton} width='100%' alt="" />
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
+                            </AnimatePresence>
                         </div>
                     </>
             }
