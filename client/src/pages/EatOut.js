@@ -12,8 +12,8 @@ function EatOut(props) {
 
     const { token } = useContext(UserContext);
     
-    const [restaurant , setRestaurant] = useState([])
-    const [recipeIndex, setRecipeIndex] = useState(0)
+    const [restaurant , setRestaurant] = useState([]);
+    const [recipeIndex, setRecipeIndex] = useState(0);
 
     useEffect(() => {
         API.handleYelp(props.match.params.cuisines , props.match.params.locationTerm)
@@ -28,7 +28,6 @@ function EatOut(props) {
         event.preventDefault();
         setRecipeIndex(recipeIndex + 1);
     }
-
 
     async function addToFavorites(event) {
         event.preventDefault();
@@ -65,7 +64,7 @@ function EatOut(props) {
                     <>
 
             <div className="jumbotron logo py-4">
-                <img src={eatOutLogo} height='150' alt="Nood Finder Logo"/>
+                <img src={eatOutLogo} width='60%' alt="Nood Finder Logo"/>
             </div>
             <div className="container logo">
             <AnimatePresence>
@@ -76,7 +75,7 @@ function EatOut(props) {
                     <div className="p-3">
                         <div className="row text-center">
                         {  console.log(restaurant[recipeIndex].name)}
-                            <h1><strong>{restaurant[recipeIndex].name}</strong></h1>
+                            <h2><strong>{restaurant[recipeIndex].name}</strong></h2>
                         </div>
                         <div className="row text-center">
                             <h3>{restaurant[recipeIndex].is_closed === false ? "Open " : "Close"}</h3>
@@ -86,13 +85,13 @@ function EatOut(props) {
                         </div>
                         <div className="row text-center mt-4">
                             <div className="col-4">
-                            <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => changeRecipe(e)} width='100%' alt="" />
+                            <motion.img key={rejectButton} src={rejectButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>changeRecipe(e)} width='100%' alt="" />
                             </div>
                             <div className="col-4">
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => addToFavorites(e)} width='100%' alt="" />
+                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{changeRecipe(e); addToFavorites(e);}} width='100%' alt="" />
                             </div>
                         </div>
                     </div>

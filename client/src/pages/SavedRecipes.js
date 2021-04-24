@@ -27,33 +27,30 @@ function SavedRecipes({history}) {
             <Navbar history={history}/>
             {
                 allFavorites.length === 0 ?
-                    <div className="d-flex mt-5 justify-content-center">
-                        <div className="spinner-border text-warning" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
+                <div className="d-flex mt-5 justify-content-center">
+                    <div className="spinner-border text-warning" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div>
-                    :
-                    <>
-                        <div className="container favorite-recipes">
-                            <h1 class="text-center">Saved Recipes</h1>
-                            {allFavorites.map(recipe => <RecipeCard
-                                key={recipe._id}
-                                recipeID={recipe._id}
-                                cookTime={recipe.cookTime}
-                                image={recipe.image}
-                                name={recipe.name}
-                                servings={recipe.servings}
-                                url={recipe.url}
-                                removeFromFavorites={removeFromFavorites}
-                            />)}
-                        </div>
-                    </>
+                </div>
+                :
+                <>
+                    <div className="container favorite-recipes">
+                        <h1 class="text-center">Saved Recipes</h1>
+                        {allFavorites.map(recipe => <RecipeCard
+                            key={recipe._id}
+                            recipeID={recipe._id}
+                            cookTime={recipe.cookTime}
+                            image={recipe.image}
+                            name={recipe.name}
+                            servings={recipe.servings}
+                            url={recipe.url}
+                            removeFromFavorites={removeFromFavorites}
+                        />)}
+                    </div>
+                </>
             }
-            
             <Footer />
-
         </div>
-
     );
 }
 
