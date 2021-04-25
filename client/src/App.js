@@ -16,6 +16,7 @@ import RestaurantCuisines from "./pages/RestaurantCuisines";
 import Meals from "./pages/Meals";
 import SavedRestaurants from "./pages/SavedRestaurants";
 import SavedRecipes from "./pages/SavedRecipes";
+import UserSave from "./pages/UserSave";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/meals" component={Meals} />
           <Route path="/savedrecipes" component={SavedRecipes} />
           <Route path="/savedrestaurants" component={SavedRestaurants} />
+          <Route path="/usersave" component={UserSave} />
         </div>
       </Router>
     </UserContext.Provider>

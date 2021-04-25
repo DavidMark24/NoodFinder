@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import onlyFoodsLogo from "../images/onlyFoodsLogo.svg";
 import RecipeCard from "../components/SavedCard";
 import Footer from "../components/Footer";
 import API from "../utils/Api";
 import UserContext from "../utils/UserContext";
 import Navbar from "../components/Navbar";
+import LoadingBar from "../images/loadingBar.svg";
+import "../App.css";
 
-function SavedRecipes({history}) {
+function SavedRecipes({ history }) {
     const { token } = useContext(UserContext);
     const [allFavorites, setAllFavorites] = useState([]);
 
@@ -25,39 +26,31 @@ function SavedRecipes({history}) {
 
     return (
         <div>
-            <Navbar history={history}/>
+            <Navbar history={history} />
             {
                 allFavorites.length === 0 ?
                     <div className="d-flex mt-5 justify-content-center">
-                        <div className="spinner-border text-warning" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
+                        <img className="loading" src={LoadingBar} width="50%" alt="loading" />
                     </div>
-                    :
-                    <>
-                        <div className="jumbotron logo py-4">
-                            <img src={onlyFoodsLogo} height='150' alt="Nood Finder Logo" />
-                        </div>
-                        <div className="container favorite-recipes">
-                            <h1 class="text-center">Saved Recipes</h1>
-                            {allFavorites.map(recipe => <RecipeCard
-                                key={recipe._id}
-                                recipeID={recipe._id}
-                                cookTime={recipe.cookTime}
-                                image={recipe.image}
-                                name={recipe.name}
-                                servings={recipe.servings}
-                                url={recipe.url}
-                                removeFromFavorites={removeFromFavorites}
-                            />)}
-                        </div>
-                    </>
+                :
+                <>
+                    <div className="container favorite-recipes">
+                        <h1 class="text-center">Saved Recipes</h1>
+                        {allFavorites.map(recipe => <RecipeCard
+                            key={recipe._id}
+                            recipeID={recipe._id}
+                            cookTime={recipe.cookTime}
+                            image={recipe.image}
+                            name={recipe.name}
+                            servings={recipe.servings}
+                            url={recipe.url}
+                            removeFromFavorites={removeFromFavorites}
+                        />)}
+                    </div>
+                </>
             }
-            
             <Footer />
-
         </div>
-
     );
 }
 

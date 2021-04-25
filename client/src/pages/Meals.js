@@ -2,6 +2,7 @@ import React from "react";
 import subgenreLogo from "../images/subgenre.svg";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { motion } from "framer-motion";
 
 function Meals({history}) {
     function getRecipes(subGenre) {
@@ -14,32 +15,32 @@ function Meals({history}) {
         <div>
             <Navbar history={history}/>
             <div className="jumbotron logo py-4">
-                <img src={subgenreLogo} height='150' alt="Nood Finder Logo" />
+                <img src={subgenreLogo} width='80%' alt="Nood Finder Logo" />
             </div>
             <div className="container">
-                <div className="row">
-                    <div onClick={() => getRecipes("breakfast")} className="text-center m-4 cuisine-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
+                <div className="row logo">
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}  onClick={() => getRecipes("breakfast")} className="text-center m-4 meal-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
                         <h2><strong>Breakfast</strong></h2>
-                    </div>
-                    <div onClick={() => getRecipes("brunch")} className="text-center m-4 cuisine-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}  onClick={() => getRecipes("brunch")} className="text-center m-4 meal-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
                         <h2><strong>Brunch</strong></h2>
-                    </div>
+                    </motion.div>
                 </div>
-                <div className="row">
-                    <div onClick={() => getRecipes("lunch")} className="text-center m-4 cuisine-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
+                <div className="row logo">
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}  onClick={() => getRecipes("lunch")} className="text-center m-4 meal-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
                         <h2><strong>Lunch</strong></h2>
-                    </div>
-                    <div onClick={() => getRecipes("dinner")} className="text-center m-4 cuisine-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}  onClick={() => getRecipes("dinner")} className="text-center m-4 meal-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
                         <h2><strong>Dinner</strong></h2>
-                    </div>
+                    </motion.div>
                 </div>
-                <div className="row">
-                    <div onClick={() => getRecipes("dessert")} className="text-center m-4 cuisine-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
+                <div className="row logo">
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}  onClick={() => getRecipes("dessert")} className="text-center m-4 meal-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
                         <h2><strong>Dessert</strong></h2>
-                    </div>
-                    <div onClick={() => getRecipes("snacks")} className="text-center m-4 cuisine-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}  onClick={() => getRecipes("snacks")} className="text-center m-4 meal-box box extra-rounded tan_bg col-md-5 col-sm-12 white">
                         <h2><strong>Snacks</strong></h2>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             <Footer />
