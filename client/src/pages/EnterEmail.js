@@ -12,8 +12,11 @@ function EnterEmail({history}) {
             email: document.getElementById('email-input').value
         }).then(function (response) {
             console.log(response);
+            alert("A password-reset email has been sent to the email provided :)");
+            history.push('/');
         }).catch(function (error) {
-            console.log(error);
+            if (error.response.status === 404) alert("We don't recognize the email you provided.");
+            if (error.response.status === 500) alert('Something went wrong with our server :(');
         });
     }
 

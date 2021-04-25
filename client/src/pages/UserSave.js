@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import dineIn from "../images/dineInSquare.jpg";
 import eatOut from "../images/eatOutSquare.jpg";
 import Footer from "../components/Footer";
@@ -8,11 +8,27 @@ import { Link } from "react-router-dom";
 import eateries from "../images/eateries.svg";
 import recipes from "../images/recipes.svg";
 import saved from "../images/saved.svg";
+import UserContext from "../utils/UserContext";
 
 function Choice({history}) {
+    const {token} = useContext(UserContext);
+
     function toSavedRecipes(event) {
         event.preventDefault();
-        history.push('/savedrecipes');
+        if (token === '') {
+            alert('Sign in to view your favorite recipes.')
+            history.push('/')
+        }
+        else history.push('/savedrecipes');
+    }
+
+    function toSavedRestaurants(event) {
+        event.preventDefault();
+        if (token === '') {
+            alert('Sign in to view your saved restaurants.')
+            history.push('/')
+        }
+        else history.push('/savedrestaurants');
     }
 
 

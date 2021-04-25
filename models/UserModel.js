@@ -5,8 +5,10 @@ const restaurantsSchema = require('./Restaurants');
 
 
 const UserSchema = new mongoose.Schema({
-    // TODO: add must be unique later.
-    email: String,
+    email: {
+        type: String, 
+        unique: true
+    },
     password: String,
     firstName: String,
     lastName: String,

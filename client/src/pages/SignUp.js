@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
 import Footer from "../components/Footer";
 import axios from 'axios';
 import Navbar from "../components/Navbar";
+import UserContext from "../utils/UserContext";
 
 function SignUp({history}) {
+    const { setToken } = useContext(UserContext);
+
     const getElementValue = (id) => document.getElementById(id).value;
     function createNewUser(event) {
         event.preventDefault();
@@ -18,10 +21,13 @@ function SignUp({history}) {
         keys.forEach((key, i) => data[key] = inputValues[i])
         axios.post('/newUser', data)
             .then(response => {
-                console.log(response);
+                console.log("response:", response);
+                setToken(response.data.token);
+                // history.push('/choice');
             })
             .catch(error => {
-                console.log(error);
+                if (error.response.status === 403) alert('The email you provided already has an account.');
+                if (error.response.status === 500) alert('Something went wrong with our server, please try again soon.');
             })
     }
 
@@ -70,7 +76,7 @@ function SignUp({history}) {
                                 <span className="sr-only">Error:</span> <span className="msg"></span>
                             </div>
                             <div className="text-center">
-                                <button onClick={(e) => {createNewUser(e); window.location.href='/choice';}} type="submit" className="btn btn-secondary mt-2 mb-1 mx-auto h3 btn-xl"><img src={signUpButton} width='100' alt="loginbtn" /></button>
+                                <button onClick={(e) => {createNewUser(e)}} type="submit" className="btn btn-secondary mt-2 mb-1 mx-auto h3 btn-xl"><img src={signUpButton} width='100' alt="loginbtn" /></button>
                             </div>
                         </form>
                         <br />
