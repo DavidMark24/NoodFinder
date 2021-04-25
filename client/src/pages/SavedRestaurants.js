@@ -5,12 +5,14 @@ import UserContext from "../utils/UserContext";
 import LoadingBar from "../images/loadingBar.svg";
 import API from "../utils/Api";
 import Navbar from "../components/Navbar";
+import LoadingBar from "../images/loadingBar.svg";
+import "../App.css";
 
-function SavedRestaurants({history}) {
+function SavedRestaurants({ history }) {
     const { token } = useContext(UserContext);
 
     const [allFavorites, setAllFavorites] = useState([]);
-    
+
     useEffect(() => {
         async function setFavorites() {
             let response = await API.getAllRestaurants(token);
@@ -26,7 +28,7 @@ function SavedRestaurants({history}) {
 
     return (
         <div>
-            <Navbar history={history}/>
+            <Navbar history={history} />
             {
                 allFavorites.length === 0 ?
                 <div className="d-flex mt-5 justify-content-center">
@@ -53,7 +55,7 @@ function SavedRestaurants({history}) {
                         </div>
                     </>
             }
-            
+
             <Footer />
 
         </div>

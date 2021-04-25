@@ -15,7 +15,7 @@ function Meals({history}) {
         <div>
             <Navbar history={history}/>
             <div className="jumbotron logo py-4">
-                <img src={subgenreLogo} width='80%' alt="Nood Finder Logo" />
+                <img src={subgenreLogo} width='80%' alt="Meal Type Options" />
             </div>
             <div className="container">
                 <div className="row logo">
