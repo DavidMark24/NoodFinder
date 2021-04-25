@@ -1,11 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import TwoOs from "../images/twoOs.svg";
 import AccountIcon from "../images/accountIcon.svg";
+import UserContext from "../utils/UserContext";
 
 function Navbar({history}) {
+    const {token} = useContext(UserContext);
+
     function toSavedRecipes(event) {
         event.preventDefault();
-        history.push('/savedrecipes');
+        if (token === '') {
+            alert('Sign in to view your favorite recipes.')
+            history.push('/')
+        }
+        else history.push('/savedrecipes');
     }
 
     function toChoice(event) {

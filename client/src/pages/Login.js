@@ -28,7 +28,9 @@ function Login({history}) {
             setToken(response.data.token);
         }).catch(function (error) {
             // API will return 401 Unauthorized for bad credentials.
-            console.log(error.message);
+            if (error.response.status === 401) alert("Invalid email or password.")
+            if (error.response.status === 500) alert("Something went wrong with our server, please try again soon.")
+            else throw error;
         })
     }
 
