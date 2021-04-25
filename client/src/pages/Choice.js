@@ -22,7 +22,7 @@ function Choice({history}) {
                     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }} className="col-lg-5 col-md-5 col-sm-12 shadow-lg p-3 m-4 rounded tan_bg">
                         <Link to = {"/recipecuisines"} onClick={(e) => {chooseGenre(e)}}>
                             <div className="box light_brown_bg p-2 rounded">
-                                <img classNameName="rounded" src={dineIn} width='100%' alt=""/>
+                                <img className="rounded" src={dineIn} width='100%' alt=""/>
                             </div>
                             <div className="logo">
                                 <img className="mt-2 py-4" src={dineInLogo} width='90%' alt=""/>

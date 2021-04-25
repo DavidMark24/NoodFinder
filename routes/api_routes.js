@@ -26,11 +26,15 @@ router.post('/api/restaurants', passport.authenticate('bearer'), async ({body, u
     console.log("body:", body, user);
     // res.json("post successful!")
     const email = user.email;
-    const { name, hours, phone, image_url, rating } = body;
+    const { name, phone, image_url, address_1, address_2, address_3, city, zipcode, state} = body;
     const newRestaurant = {
         name,
-        rating,
-        hours,
+        address_1,
+        address_2,
+        address_3,
+        city,
+        zipcode,
+        state,
         phone,
         image_url
     }

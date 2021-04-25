@@ -1,15 +1,34 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const restaurantsSchema = new Schema({
     name: {
         type: String,
     },
-    rating: {
-        type: Number
+    address_1: {
+        type: String,
+    
     },
-    hours: {
-        type: Boolean
+    address_2: {
+        type: String,
+    
+    },
+    address_3: {
+        type: String,
+    
+    },
+    city: {
+        type: String,
+    
+    },
+    zipcode: {
+        type: String,
+    
+    },
+    state: {
+        type: String,
+    
     },
     phone: {
         type: String
