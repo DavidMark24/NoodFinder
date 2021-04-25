@@ -4,6 +4,7 @@ import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import UserContext from "../utils/UserContext";
+import LoadingBar from "../images/loadingBar.svg";
 import API from "../utils/Api";
 import Navbar from "../components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
@@ -72,14 +73,12 @@ function DineIn({history}) {
                 allRecipes[recipeIndex] == null ?
                     // Check out loading.io for cool loading icons.
                     <div className="d-flex mt-5 justify-content-center">
-                        <div className="spinner-border text-warning" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
+                    <img className="loading" src={LoadingBar} width="50%" alt="loading" />
+                </div>
                     :
                     <>
                         <div className="jumbotron logo py-4">
-                            <img src={dineInLogo} height='150' alt="Nood Finder Logo" />
+                            <img src={dineInLogo} width='60%' alt="Nood Finder Logo" />
                         </div>
                         <div className="container logo">
                         <AnimatePresence>
@@ -107,7 +106,7 @@ function DineIn({history}) {
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => {changeRecipe(e); addToFavorites(e)}} width='100%' alt="" />
+                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => addToFavorites(e)} width='100%' alt="" />
                                         </div>
                                     </div>
                                 </div>
