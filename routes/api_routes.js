@@ -45,13 +45,14 @@ router.post('/api/restaurants', passport.authenticate('bearer'), async ({body, u
     })
 })
 
-router.delete('/api/restaurants/:email/:restaurantID', async (req, res) => {
-    const { email, restaurantID } = req.params;
-    db.User.findOne({ email })
+router.delete('/api/restaurants/:restaurantID',passport.authenticate('bearer'), async (req, res) => {
+    const userID = req.user._id;
+    const restaurantID = req.params.restaurantID;
+    db.User.findOne({ _id: userID  })
         .then(async (user) => {
             await user.favoriteRestaurants.id(restaurantID).remove();
             user.save();
-            res.json("delete successful!")
+            res.json(user.favoriteRestaurants)
         })
 
 })
