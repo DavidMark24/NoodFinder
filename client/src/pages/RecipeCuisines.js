@@ -29,7 +29,7 @@ function RecipeCuisines({history}) {
         <div>
             <Navbar history={history}/>
             <div className="jumbotron logo py-4 mt-4">
-                <img src={genreLogo} width='70%' alt="Nood Finder Logo"/>
+                <img src={genreLogo} width='70%' alt="Cuisine Options"/>
             </div>
             <div className="container logo">
             <AnimatePresence>
