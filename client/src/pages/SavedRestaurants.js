@@ -5,7 +5,6 @@ import UserContext from "../utils/UserContext";
 import LoadingBar from "../images/loadingBar.svg";
 import API from "../utils/Api";
 import Navbar from "../components/Navbar";
-import LoadingBar from "../images/loadingBar.svg";
 import "../App.css";
 
 function SavedRestaurants({ history }) {
@@ -21,7 +20,7 @@ function SavedRestaurants({ history }) {
         setFavorites();
     }, [])
 
-    async function removeFromFavorites(restaurantID) {
+    async function removeFromRestaurants(restaurantID) {
         const favorites = await API.removeFromRestaurants(token, restaurantID);
         setAllFavorites(favorites.data);
     }
@@ -37,7 +36,7 @@ function SavedRestaurants({ history }) {
                     :
                     <>
                         <div className="container favorite-recipes">
-                            <h1 class="text-center">Saved Restaurants</h1>
+                            <h1 className="text-center">Saved Restaurants</h1>
                             {allFavorites.map(restaurant => <RecipeCard
                                 key={restaurant._id}
                                 restaurantID={restaurant._id}
@@ -50,7 +49,7 @@ function SavedRestaurants({ history }) {
                                 zipcode={restaurant.zip_code}
                                 state={restaurant.state}
                                 phone={restaurant.phone}
-                                removeFromFavorites={removeFromFavorites}
+                                removeFromRestaurants={removeFromRestaurants}
                             />)}
                         </div>
                     </>
