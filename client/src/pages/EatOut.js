@@ -4,6 +4,7 @@ import rejectButton from "../images/rejectButton.svg";
 import acceptButton from "../images/acceptButton.svg";
 import Footer from "../components/Footer";
 import UserContext from "../utils/UserContext";
+import LoadingBar from "../images/loadingBar.svg";
 import API from "../utils/Api"
 import Navbar from "../components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,11 +34,15 @@ function EatOut(props) {
         event.preventDefault();
         // TODO: Use token instead of email.
         let name = restaurant[recipeIndex].name;
-        let rating = restaurant[recipeIndex].rating;
-        let hours = restaurant[recipeIndex].is_closed;
+        let address_1 = restaurant[recipeIndex].location.address1;
+        let address_2 = restaurant[recipeIndex].location.address2;
+        let address_3 = restaurant[recipeIndex].location.address3;
+        let city = restaurant[recipeIndex].location.city;
+        let zipcode = restaurant[recipeIndex].location.zip_code;
+        let state = restaurant[recipeIndex].location.state;
         let phone = restaurant[recipeIndex].display_phone;
         let image_url = restaurant[recipeIndex].image_url;
-        let restaurantData = { name, rating, hours, phone, image_url};
+        let restaurantData = { name, address_1, address_2, address_3, city, zipcode, state, phone, image_url};
         const res = await API.addFavoriteRestaurant(restaurantData, token);
         console.log("new recipe:", res.data);
     }
@@ -55,11 +60,9 @@ function EatOut(props) {
             {
                 restaurant[recipeIndex] == null ?
 
-            <div className="d-flex mt-5 justify-content-center">
-                        <div className="spinner-border text-warning" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
+                <div className="d-flex mt-5 justify-content-center">
+                <img className="loading" src={LoadingBar} width="50%" alt="loading" />
+            </div>
                     :
                     <>
 
@@ -91,7 +94,7 @@ function EatOut(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{changeRecipe(e); addToFavorites(e);}} width='100%' alt="" />
+                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{addToFavorites(e);}} width='100%' alt="" />
                             </div>
                         </div>
                     </div>
