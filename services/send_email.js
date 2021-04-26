@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-require('dotenv').config();
+// require('dotenv').config();
 
 const sendEmail = (resetLink, emailAddress) => {
     let transporter = nodemailer.createTransport({
