@@ -57,7 +57,7 @@ module.exports = (app) => {
             // TODO: Add a dynammic client URL.
             let clientURL = process.env.CLIENT_URL || 'http://localhost:3000';
             let resetLink = `${clientURL}/resetpassword/?id=${payload.id}&token=${token}`
-            sendEmail(resetLink);
+            sendEmail(resetLink, emailAddress);
             // For now, will just return a link to click:
             res.send('We have sent you an email to reset your password.')
         }

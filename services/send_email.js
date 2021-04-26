@@ -1,11 +1,12 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
-const sendEmail = (resetLink) => {
+const sendEmail = (resetLink, emailAddress) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: 'noodfinder@gmail.com',
-          pass: 'sendnoods'
+          pass: process.env.PASSWORD
         }
       });
     
@@ -13,8 +14,8 @@ const sendEmail = (resetLink) => {
       
       let mailOptions = {
         from: 'noodfinder@gmail.com',
-        to: 'ankushchalla@gmail.com',
-        subject: 'Sending Email using Node.js',
+        to: emailAddress,
+        subject: 'Only Foods: Reset Password',
         html: forgotPasswordHTML
       };
       
