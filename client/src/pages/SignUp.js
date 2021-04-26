@@ -21,9 +21,8 @@ function SignUp({history}) {
         keys.forEach((key, i) => data[key] = inputValues[i])
         axios.post('/newUser', data)
             .then(response => {
-                console.log("response:", response);
                 setToken(response.data.token);
-                // history.push('/choice');
+                history.push('/choice');
             })
             .catch(error => {
                 if (error.response.status === 403) alert('The email you provided already has an account.');

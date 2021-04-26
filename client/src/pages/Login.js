@@ -26,6 +26,7 @@ function Login({history}) {
         }).then(function (response) {
             // This token uniquely identifies the user, and will be needed for all api calls.
             setToken(response.data.token);
+            history.push('/choice')
         }).catch(function (error) {
             // API will return 401 Unauthorized for bad credentials.
             if (error.response.status === 401) alert("Invalid email or password.")

@@ -48,7 +48,6 @@ function DineIn({history}) {
 
     async function addToFavorites(event) {
         event.preventDefault();
-        // TODO: Use token instead of email.
         let name = allRecipes[recipeIndex].label;
         let cookTime = allRecipes[recipeIndex].totalTime;
         let servings = allRecipes[recipeIndex].yield;
@@ -71,7 +70,6 @@ function DineIn({history}) {
             <Navbar history={history}/>
             {
                 allRecipes[recipeIndex] == null ?
-                    // Check out loading.io for cool loading icons.
                     <div className="d-flex mt-5 justify-content-center">
                     <img className="loading" src={LoadingBar} width="50%" alt="loading" />
                 </div>
