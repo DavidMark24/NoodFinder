@@ -4,7 +4,7 @@ import onlyFoodsLogo from "../images/onlyFoodsLogo.svg";
 function OnlyFoodsLogo() {
     return (
         <div className="jumbotron logo py-4">
-            <img src={onlyFoodsLogo} height='250' alt="Nood Finder Logo"/>
+            <img src={onlyFoodsLogo} height='250' alt="Only Foods Logo"/>
         </div>
     );
 }
