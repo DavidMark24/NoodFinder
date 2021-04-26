@@ -5,12 +5,13 @@ import UserContext from "../utils/UserContext";
 import LoadingBar from "../images/loadingBar.svg";
 import API from "../utils/Api";
 import Navbar from "../components/Navbar";
+import "../App.css";
 
-function SavedRestaurants({history}) {
+function SavedRestaurants({ history }) {
     const { token } = useContext(UserContext);
 
     const [allFavorites, setAllFavorites] = useState([]);
-    
+
     useEffect(() => {
         async function setFavorites() {
             let response = await API.getAllRestaurants(token);
@@ -19,14 +20,14 @@ function SavedRestaurants({history}) {
         setFavorites();
     }, [])
 
-    async function removeFromFavorites(restaurantID) {
+    async function removeFromRestaurants(restaurantID) {
         const favorites = await API.removeFromRestaurants(token, restaurantID);
         setAllFavorites(favorites.data);
     }
 
     return (
         <div>
-            <Navbar history={history}/>
+            <Navbar history={history} />
             {
                 allFavorites.length === 0 ?
                 <div className="d-flex mt-5 justify-content-center">
@@ -35,7 +36,7 @@ function SavedRestaurants({history}) {
                     :
                     <>
                         <div className="container favorite-recipes">
-                            <h1 class="text-center">Saved Restaurants</h1>
+                            <h1 className="text-center">Saved Restaurants</h1>
                             {allFavorites.map(restaurant => <RecipeCard
                                 key={restaurant._id}
                                 restaurantID={restaurant._id}
@@ -48,12 +49,12 @@ function SavedRestaurants({history}) {
                                 zipcode={restaurant.zip_code}
                                 state={restaurant.state}
                                 phone={restaurant.phone}
-                                removeFromFavorites={removeFromFavorites}
+                                removeFromRestaurants={removeFromRestaurants}
                             />)}
                         </div>
                     </>
             }
-            
+
             <Footer />
 
         </div>
