@@ -67,7 +67,7 @@ function EatOut(props) {
                     <>
 
             <div className="jumbotron logo py-4">
-                <img src={eatOutLogo} width='60%' alt="Nood Finder Logo"/>
+                <img src={eatOutLogo} width='60%' alt="Eat Out Logo"/>
             </div>
             <div className="container logo">
             <AnimatePresence>
@@ -94,7 +94,7 @@ function EatOut(props) {
                                 {/* Empty column */}
                             </div>
                             <div className="col-4">
-                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{addToFavorites(e);}} width='100%' alt="" />
+                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{changeRecipe(e); addToFavorites(e);}} width='100%' alt="" />
                             </div>
                         </div>
                     </div>

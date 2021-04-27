@@ -77,7 +77,7 @@ function DineIn({history}) {
                     :
                     <>
                         <div className="jumbotron logo py-4">
-                            <img src={dineInLogo} width='60%' alt="Nood Finder Logo" />
+                            <img src={dineInLogo} width='60%' alt="Dine In Logo" />
                         </div>
                         <div className="container logo">
                         <AnimatePresence>
