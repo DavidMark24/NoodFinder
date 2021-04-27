@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useEffect, useContext} from "react";
 import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
 import Footer from "../components/Footer";
@@ -7,7 +7,14 @@ import Navbar from "../components/Navbar";
 import UserContext from "../utils/UserContext";
 
 function SignUp({history}) {
-    const { setToken } = useContext(UserContext);
+    const { token, setToken } = useContext(UserContext);
+
+    // You can't use callback methods for hooks, so we have to use useEffect
+    // to change page after setToken finishes. 
+    useEffect(() => {
+        if (token === '') return;
+        history.push('/choice');
+    }, [token])
 
     const getElementValue = (id) => document.getElementById(id).value;
     function createNewUser(event) {
@@ -22,7 +29,6 @@ function SignUp({history}) {
         axios.post('/newUser', data)
             .then(response => {
                 setToken(response.data.token);
-                history.push('/choice');
             })
             .catch(error => {
                 if (error.response.status === 403) alert('The email you provided already has an account.');
