@@ -2,7 +2,7 @@ const router = require('express').Router()
 const axios = require('axios');
 const db = require('../models');
 const passport = require('../services/passport');
-require('dotenv').config();
+// require('dotenv').config();
 
 // Recipe API
 router.get("/api/recipesearch/:term", (req, res) => {
