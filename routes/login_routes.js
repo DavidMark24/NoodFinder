@@ -22,7 +22,7 @@ module.exports = (app) => {
                 if (err.code === 11000) res.sendStatus(403);
                 else res.json(err);
             });
-    })
+    });
 
     // If passport middleware succeeds, it will send User object in req.
     // If the user is not found, server sends back 401 Unauthorized.

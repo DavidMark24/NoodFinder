@@ -37,12 +37,12 @@ passport.use(new BearerStrategy(
     function (token, done) {
         let decryptedUsername;
         try {
-            decryptedUsername = jwt.decode(token, SECRET).username;
+            decryptedUsername = jwt.decode(token, SECRET).email;
         } catch (err) {
             done(null, false)
         }
         db.User.findOne({
-            username: decryptedUsername
+            email: decryptedUsername
         }).then(function (user, err) {
             if (err) return err;
             if (user == null) done(null, false)
