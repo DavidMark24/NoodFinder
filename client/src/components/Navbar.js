@@ -11,7 +11,7 @@ function Navbar({ history }) {
         event.preventDefault();
         if (token === '') {
             alert("You must be signed in to view this page.");
-            window.href = '/';
+            window.location.href = '/';
         }
         else history.push('/choice');
     }
@@ -20,7 +20,7 @@ function Navbar({ history }) {
         event.preventDefault();
         if (token === '') {
             alert("You must be signed in to view saved items.");
-            window.href = '/';
+            window.location.href = '/';
         }
         else history.push('/usersave')
     }
