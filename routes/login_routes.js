@@ -10,12 +10,10 @@ module.exports = (app) => {
         newUser.hashPassword();
         db.User.create(newUser)
             .then(dbUser => {
-                let now = new Date(Date.now());
-                const SECRET = now.getHours().toString();
-                const token = jwt.encode({ email: dbUser.email }, SECRET);
                 res.json({
-                    token
-                });
+                    firstName: dbUser.firstName, 
+                    lastName: dbUser.lastName
+                })
             })
             .catch(err => {
                 // If the email is not unique. 
