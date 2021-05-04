@@ -21,6 +21,7 @@ function DineIn({history}) {
         // Check for token.
         if (token === '') {
             // Redirect to login page if no token is present.
+            alert("You must be signed in to view recipes.")
             window.location.href = '/';
         }
 

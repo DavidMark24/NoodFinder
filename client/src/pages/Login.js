@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 
-function Login({history}) {
+function Login({ history }) {
     const { token, setToken } = useContext(UserContext);
 
     // You can't use callback methods for hooks, so we have to use useEffect
@@ -26,7 +26,6 @@ function Login({history}) {
         }).then(function (response) {
             // This token uniquely identifies the user, and will be needed for all api calls.
             setToken(response.data.token);
-            history.push('/choice')
         }).catch(function (error) {
             // API will return 401 Unauthorized for bad credentials.
             if (error.response.status === 401) alert("Invalid email or password.")
@@ -63,7 +62,7 @@ function Login({history}) {
                                 <span className="sr-only">Error:</span> <span className="msg"></span>
                             </div>
                             <div className="text-center">
-                                <button onClick={(e) => {loginUser(e)}} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
+                                <button onClick={(e) => { loginUser(e) }} type="submit" className="btn btn-primary mt-2 mb-1 mx-auto h3 btn-xl"><img src={logInButton} width='100' alt="loginbtn" /></button>
                             </div>
                         </form>
                         <br />

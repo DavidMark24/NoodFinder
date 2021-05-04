@@ -3,11 +3,16 @@ const LocalStrategy = require('passport-local').Strategy
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const jwt = require('jwt-simple');
 const db = require('../models');
+const bcrypt = require('bcrypt');
 
 // The token issued at login will be valid for the current hour.
 // TODO: Make token valid for one hour from now.
 let now = new Date(Date.now());
-const SECRET = now.getHours().toString()
+const SECRET = bcrypt.hashSync(
+    now.getHours().toString(),
+    bcrypt.genSaltSync(10),
+    null
+);
 
 passport.use(new LocalStrategy({
     usernameField: 'email'
@@ -23,6 +28,7 @@ passport.use(new LocalStrategy({
             if (!user) {
                 return done(null, false, { message: 'Incorrect username' })
             }
+            // validPassword defined in UserModel.js
             if (!user.validPassword(password, user.password)) {
                 return done(null, false, { message: 'Incorrect password.' })
             }
@@ -37,12 +43,12 @@ passport.use(new BearerStrategy(
     function (token, done) {
         let decryptedUsername;
         try {
-            decryptedUsername = jwt.decode(token, SECRET).username;
+            decryptedUsername = jwt.decode(token, SECRET).email;
         } catch (err) {
             done(null, false)
         }
         db.User.findOne({
-            username: decryptedUsername
+            email: decryptedUsername
         }).then(function (user, err) {
             if (err) return err;
             if (user == null) done(null, false)

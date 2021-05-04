@@ -1,14 +1,11 @@
-import React, {useContext} from "react";
+import React from "react";
 import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
 import Footer from "../components/Footer";
 import axios from 'axios';
 import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
-import UserContext from "../utils/UserContext";
 
 function SignUp({history}) {
-    const { setToken } = useContext(UserContext);
-
     const getElementValue = (id) => document.getElementById(id).value;
     function createNewUser(event) {
         event.preventDefault();
@@ -21,8 +18,7 @@ function SignUp({history}) {
         keys.forEach((key, i) => data[key] = inputValues[i])
         axios.post('/newUser', data)
             .then(response => {
-                setToken(response.data.token);
-                history.push('/choice');
+                window.location.href = '/';
             })
             .catch(error => {
                 if (error.response.status === 403) alert('The email you provided already has an account.');

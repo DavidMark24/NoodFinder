@@ -10,19 +10,17 @@ module.exports = (app) => {
         newUser.hashPassword();
         db.User.create(newUser)
             .then(dbUser => {
-                let now = new Date(Date.now());
-                const SECRET = now.getHours().toString();
-                const token = jwt.encode({ email: dbUser.email }, SECRET);
                 res.json({
-                    token
-                });
+                    firstName: dbUser.firstName, 
+                    lastName: dbUser.lastName
+                })
             })
             .catch(err => {
                 // If the email is not unique. 
                 if (err.code === 11000) res.sendStatus(403);
                 else res.json(err);
             });
-    })
+    });
 
     // If passport middleware succeeds, it will send User object in req.
     // If the user is not found, server sends back 401 Unauthorized.
