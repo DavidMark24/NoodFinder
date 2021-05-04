@@ -104,7 +104,7 @@ function DineIn({history}) {
                                             {/* Empty column */}
                                         </div>
                                         <div className="col-4">
-                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e => addToFavorites(e)} width='100%' alt="" />
+                                            <motion.img key={acceptButton} src={acceptButton} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={e =>{changeRecipe(e); addToFavorites(e)}} width='100%' alt="" />
                                         </div>
                                     </div>
                                 </div>
