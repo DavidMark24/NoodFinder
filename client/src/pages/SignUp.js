@@ -3,7 +3,7 @@ import signUp from "../images/signUpLogo.svg";
 import signUpButton from "../images/signUpButton.svg";
 import Footer from "../components/Footer";
 import axios from 'axios';
-import Navbar from "../components/Navbar";
+import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 import UserContext from "../utils/UserContext";
 
 function SignUp({history}) {
@@ -32,11 +32,8 @@ function SignUp({history}) {
 
     return (
         <div>
-            <Navbar history={history}/>
-            <div className="container">
-                <div className="row spacing">
-
-                </div>
+            <OnlyFoodsLogo />
+            <div className="container mt-2">
                 <div className="row">
                     <div className="col-2">
 

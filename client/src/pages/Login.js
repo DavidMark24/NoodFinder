@@ -4,7 +4,7 @@ import logIn from "../images/logInLogo.svg";
 import logInButton from "../images/logInButton.svg";
 import Footer from "../components/Footer";
 import axios from "axios";
-import Navbar from "../components/Navbar";
+import OnlyFoodsLogo from "../components/OnlyFoodsLogo"
 
 function Login({history}) {
     const { token, setToken } = useContext(UserContext);
@@ -37,11 +37,8 @@ function Login({history}) {
 
     return (
         <div>
-            <Navbar history={history}/>
+            <OnlyFoodsLogo />
             <div className="container">
-                <div className="row spacing">
-
-                </div>
                 <div className="row">
                     <div className="col-2">
 
