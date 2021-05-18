@@ -10,6 +10,11 @@ Link to Deployed Application: <a href="https://only-foods.herokuapp.com/"> Here 
 
 ------------
 
+Screenshot
+
+![Screenshot (53)](https://user-images.githubusercontent.com/72535444/118723399-3a16d980-b7e2-11eb-8e68-87bb33a21b23.jpg)
+
+------------
 
 How often are you at your wits end, trying to decide what to eat for your next meal? In this modern day and age, picking what to eat next should be as easy as clicking yes or no. With Only Foods, you get exactly that. With similar mechanics to most modern dating apps, simply select your choice of Dine In or Eat Out, and run through the prompts until you find something you like.
 
